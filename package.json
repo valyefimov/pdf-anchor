@@ -1,0 +1,115 @@
+{
+  "name": "pdf-anchor",
+  "version": "0.1.0",
+  "description": "Highlight citations inside a PDF and jump between them. React viewer built on react-pdf, plus a framework-agnostic core.",
+  "keywords": [
+    "pdf",
+    "pdf-viewer",
+    "citations",
+    "highlight",
+    "react",
+    "react-pdf",
+    "text-matching"
+  ],
+  "author": "Valentyn Yefimov <valentine.efimov@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valyefimov/pdf-anchor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/valyefimov/pdf-anchor/issues"
+  },
+  "homepage": "https://github.com/valyefimov/pdf-anchor#readme",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./core": {
+      "import": {
+        "types": "./dist/core.d.ts",
+        "default": "./dist/core.js"
+      },
+      "require": {
+        "types": "./dist/core.d.cts",
+        "default": "./dist/core.cjs"
+      }
+    },
+    "./styles.css": "./dist/styles.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "audit:prod": "npm audit --omit=dev",
+    "prepublishOnly": "npm run typecheck && npm run lint && npm test && npm run build"
+  },
+  "dependencies": {
+    "string-best-match": "1.1.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitest/coverage-v8": "^5.0.4",
+    "eslint": "^10.12.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "jsdom": "^30.1.2",
+    "prettier": "^3.9.10",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-pdf": "^11.0.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.71.2",
+    "vitest": "^5.0.4"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0",
+    "react-pdf": "^10.0.0 || ^11.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": "true"
+    },
+    "react-dom": {
+      "optional": "true"
+    },
+    "react-pdf": {
+      "optional": "true"
+    }
+  }
+}
