@@ -10,7 +10,10 @@ export default defineConfig({
   treeshake: true,
   splitting: true,
   target: 'es2022',
-  external: ['react', 'react-dom', 'react/jsx-runtime', 'react-pdf', 'string-best-match'],
+  // string-best-match 1.1.1 ships extensionless ESM imports that Node cannot resolve,
+  // so it is bundled instead of being left as a runtime dependency.
+  noExternal: ['string-best-match'],
+  external: ['react', 'react-dom', 'react/jsx-runtime', 'react-pdf'],
   async onSuccess() {
     await mkdir('dist', { recursive: true });
     await copyFile('src/styles.css', 'dist/styles.css');
