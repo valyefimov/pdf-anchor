@@ -175,3 +175,18 @@
   }
 }
 
+/* Highlights -------------------------------------------------------------- */
+
+.pdf-anchor-highlight {
+  background-color: var(--pdf-anchor-highlight-color, var(--pdf-anchor-highlight));
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.pdf-anchor-highlight--active {
+  background-color: var(--pdf-anchor-highlight-active);
+  outline: 2px solid var(--pdf-anchor-highlight-color, var(--pdf-anchor-accent));
+  outline-offset: 1px;
+}
+
