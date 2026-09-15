@@ -121,3 +121,57 @@
   gap: 8px;
 }
 
+/* Viewport ---------------------------------------------------------------- */
+
+.pdf-anchor__viewport {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  overflow: auto;
+  padding: 16px;
+}
+
+.pdf-anchor__document {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.pdf-anchor__document .react-pdf__Page {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
+}
+
+.pdf-anchor__status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  padding: 48px 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pdf-anchor__spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--pdf-anchor-border);
+  border-top-color: var(--pdf-anchor-accent);
+  border-radius: 50%;
+  animation: pdf-anchor-spin 0.7s linear infinite;
+}
+
+@keyframes pdf-anchor-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pdf-anchor__spinner {
+    animation-duration: 2.4s;
+  }
+}
+
