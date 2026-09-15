@@ -1,0 +1,69 @@
+/*
+ * pdf-anchor styles.
+ * Everything is driven by --pdf-anchor-* custom properties, so theming is a matter of
+ * overriding variables on .pdf-anchor (or passing `theme` to the component).
+ */
+
+.pdf-anchor {
+  --pdf-anchor-bg: #f1f3f5;
+  --pdf-anchor-surface: #ffffff;
+  --pdf-anchor-text: #1a1d21;
+  --pdf-anchor-muted: #5f6b7a;
+  --pdf-anchor-border: #d5dae1;
+  --pdf-anchor-accent: #2563eb;
+  --pdf-anchor-accent-text: #ffffff;
+  --pdf-anchor-highlight: rgba(255, 221, 0, 0.45);
+  --pdf-anchor-highlight-active: rgba(255, 140, 0, 0.55);
+  --pdf-anchor-radius: 6px;
+  --pdf-anchor-font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --pdf-anchor-shadow: 0 0 8px rgba(0, 0, 0, 0.24);
+  --pdf-anchor-header-height: 56px;
+  --pdf-anchor-panel-height: 190px;
+  --pdf-anchor-toolbar-height: 64px;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100%;
+  background: var(--pdf-anchor-bg);
+  color: var(--pdf-anchor-text);
+  font-family: var(--pdf-anchor-font);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.pdf-anchor *,
+.pdf-anchor *::before,
+.pdf-anchor *::after {
+  box-sizing: border-box;
+}
+
+.pdf-anchor[data-color-scheme='dark'] {
+  --pdf-anchor-bg: #14171b;
+  --pdf-anchor-surface: #1e2227;
+  --pdf-anchor-text: #e8ebef;
+  --pdf-anchor-muted: #9aa5b3;
+  --pdf-anchor-border: #343b44;
+  --pdf-anchor-accent: #60a5fa;
+  --pdf-anchor-accent-text: #0b1220;
+  --pdf-anchor-highlight: rgba(250, 204, 21, 0.4);
+  --pdf-anchor-highlight-active: rgba(251, 146, 60, 0.6);
+  --pdf-anchor-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  .pdf-anchor[data-color-scheme='auto'] {
+    --pdf-anchor-bg: #14171b;
+    --pdf-anchor-surface: #1e2227;
+    --pdf-anchor-text: #e8ebef;
+    --pdf-anchor-muted: #9aa5b3;
+    --pdf-anchor-border: #343b44;
+    --pdf-anchor-accent: #60a5fa;
+    --pdf-anchor-accent-text: #0b1220;
+    --pdf-anchor-highlight: rgba(250, 204, 21, 0.4);
+    --pdf-anchor-highlight-active: rgba(251, 146, 60, 0.6);
+    --pdf-anchor-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  }
+}
+
