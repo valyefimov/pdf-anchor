@@ -42,13 +42,11 @@ export function useCitationHighlights({
   const [results, setResults] = useState<HighlightResult[]>([]);
   const onResultsRef = useRef(onResults);
   const highlightRef = useRef(highlight);
-  const activeIndexRef = useRef(activeIndex);
   const scrollRef = useRef(scrollToActive);
 
   useEffect(() => {
     onResultsRef.current = onResults;
     highlightRef.current = highlight;
-    activeIndexRef.current = activeIndex;
     scrollRef.current = scrollToActive;
   });
 
@@ -64,14 +62,6 @@ export function useCitationHighlights({
     const next = highlightCitations(container, citations, highlightRef.current);
     setResults(next);
     onResultsRef.current?.(next);
-
-    const active = activeIndexRef.current;
-    if (active !== null) {
-      const elements = setActiveHighlight(container, active, highlightRef.current);
-      if (scrollRef.current) {
-        scrollToHighlight(elements);
-      }
-    }
 
     return () => clearHighlights(container, highlightRef.current);
   }, [containerRef, citations, renderVersion]);
