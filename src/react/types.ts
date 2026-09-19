@@ -115,10 +115,15 @@ export interface PdfAnchorRenderContext {
   labels: PdfAnchorLabels;
 }
 
-export type PdfAnchorFile = string | URL | Uint8Array | ArrayBuffer | { url: string };
+export type PdfAnchorFile =
+  | string
+  | ArrayBuffer
+  | Blob
+  | { url: string }
+  | { data: Uint8Array | ArrayBuffer };
 
 export interface PdfAnchorViewerProps {
-  /** PDF source: URL, binary data or `{ url }`. */
+  /** PDF source: a URL, a `Blob`/`ArrayBuffer`, `{ url }` or `{ data }`. */
   file: PdfAnchorFile;
   /** Tried when `file` fails to load. */
   fallbackFile?: PdfAnchorFile;
