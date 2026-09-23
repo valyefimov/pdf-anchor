@@ -69,8 +69,7 @@ function ViewerBody(props: PdfAnchorViewerProps & { context: { labels: typeof de
     onActiveCitationChange: props.onActiveCitationChange,
   });
 
-  const localActiveIndex =
-    state.activeIndex === null ? -1 : pageIndices.indexOf(state.activeIndex);
+  const localActiveIndex = state.activeIndex === null ? -1 : pageIndices.indexOf(state.activeIndex);
 
   const { results, notifyTextLayerRendered } = useCitationHighlights({
     containerRef: viewportRef,
@@ -163,7 +162,12 @@ function ViewerBody(props: PdfAnchorViewerProps & { context: { labels: typeof de
             (renderToolbar ? (
               renderToolbar(renderContext)
             ) : (
-              <Toolbar state={fullState} actions={actions} minScale={minScale} maxScale={maxScale} />
+              <Toolbar
+                state={fullState}
+                actions={actions}
+                minScale={minScale}
+                maxScale={maxScale}
+              />
             ))}
         </div>
       )}

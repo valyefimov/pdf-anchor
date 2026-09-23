@@ -116,11 +116,7 @@ export interface PdfAnchorRenderContext {
 }
 
 export type PdfAnchorFile =
-  | string
-  | ArrayBuffer
-  | Blob
-  | { url: string }
-  | { data: Uint8Array | ArrayBuffer };
+  string | ArrayBuffer | Blob | { url: string } | { data: Uint8Array | ArrayBuffer };
 
 export interface PdfAnchorViewerProps {
   /** PDF source: a URL, a `Blob`/`ArrayBuffer`, `{ url }` or `{ data }`. */

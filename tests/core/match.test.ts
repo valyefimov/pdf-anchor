@@ -33,7 +33,9 @@ describe('matchPassage', () => {
 
   it('enforces minMatchRatio', () => {
     expect(matchPassage(page, 'chest pain on exertion only', { minMatchRatio: 0.8 })).toBeNull();
-    expect(matchPassage(page, 'chest pain on exertion only', { minMatchRatio: 0.4 })).not.toBeNull();
+    expect(
+      matchPassage(page, 'chest pain on exertion only', { minMatchRatio: 0.4 }),
+    ).not.toBeNull();
   });
 
   it('applies transformText before matching', () => {

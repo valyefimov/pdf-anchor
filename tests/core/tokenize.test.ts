@@ -2,7 +2,7 @@ import { tokenize, tokenizeFragments } from '../../src/core/tokenize';
 
 describe('tokenize', () => {
   it('lowercases and strips punctuation', () => {
-    expect(tokenize('Hello, World! It\'s 2026.')).toEqual(['hello', 'world', 'it', 's', '2026']);
+    expect(tokenize("Hello, World! It's 2026.")).toEqual(['hello', 'world', 'it', 's', '2026']);
   });
 
   it('keeps non-latin letters', () => {

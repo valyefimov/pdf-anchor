@@ -131,7 +131,8 @@ export function setActiveHighlight(
 
   root.querySelectorAll<HTMLElement>(`[${INDICES_ATTR}]`).forEach((element) => {
     const isActive =
-      index !== null && (element.getAttribute(INDICES_ATTR) ?? '').split(' ').includes(String(index));
+      index !== null &&
+      (element.getAttribute(INDICES_ATTR) ?? '').split(' ').includes(String(index));
     element.classList.toggle(activeClass, isActive);
     if (isActive) {
       active.push(element);

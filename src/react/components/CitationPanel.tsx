@@ -45,10 +45,7 @@ export function CitationPanel({ heading, description, state, actions }: Citation
             <h3 {...slot('citationTitle', 'pdf-anchor__citation-title')}>{activeCitation.title}</h3>
           )}
           {scopeCount > 1 && (
-            <div
-              {...slot('citationCounter', 'pdf-anchor__citation-counter')}
-              aria-live="polite"
-            >
+            <div {...slot('citationCounter', 'pdf-anchor__citation-counter')} aria-live="polite">
               <IconButton
                 label={labels.previousCitation}
                 disabled={activePosition <= 1}

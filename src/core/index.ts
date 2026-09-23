@@ -1,9 +1,4 @@
-export type {
-  MatchOptions,
-  PageWords,
-  PdfCitation,
-  WordMatch,
-} from './types';
+export type { MatchOptions, PageWords, PdfCitation, WordMatch } from './types';
 export { tokenize, tokenizeFragments } from './tokenize';
 export { matchPassage } from './match';
 export {
