@@ -27,6 +27,7 @@ export function Toolbar({ state, actions, minScale, maxScale }: ToolbarProps) {
                 <button
                   type="button"
                   aria-current={citationPage === page ? 'page' : undefined}
+                  aria-label={labels.pageLabel(citationPage)}
                   title={labels.pageLabel(citationPage)}
                   onClick={() => actions.goToPage(citationPage)}
                   {...slot('pageLink', 'pdf-anchor__page-link')}
