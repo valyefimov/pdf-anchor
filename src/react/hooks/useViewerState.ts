@@ -39,18 +39,25 @@ export function useViewerState(options: UseViewerStateOptions): ViewerStateResul
     onActiveCitationChange,
   } = options;
 
-  const startIndex =
-    options.initialCitationIndex !== undefined && citations[options.initialCitationIndex]
-      ? options.initialCitationIndex
-      : citations.length > 0
-        ? 0
-        : null;
+  const startIndex = (() => {
+    if (options.initialCitationIndex !== undefined && citations[options.initialCitationIndex]) {
+      return options.initialCitationIndex;
+    }
+    if (options.initialPage !== undefined) {
+      const onPage = citations.findIndex((citation) => citation.page === options.initialPage);
+      return onPage === -1 ? null : onPage;
+    }
+    return citations.length > 0 ? 0 : null;
+  })();
 
   const [page, setPage] = useState(
-    () => options.initialPage ?? (startIndex !== null ? citations[startIndex]?.page : undefined) ?? 1,
+    () =>
+      options.initialPage ?? (startIndex !== null ? citations[startIndex]?.page : undefined) ?? 1,
   );
   const [numPages, setNumPages] = useState(0);
-  const [scale, setScaleState] = useState(() => clamp(options.initialScale ?? 100, minScale, maxScale));
+  const [scale, setScaleState] = useState(() =>
+    clamp(options.initialScale ?? 100, minScale, maxScale),
+  );
   const [rotation, setRotation] = useState(() => normalizeRotation(options.initialRotation ?? 0));
   const [activeIndex, setActiveIndex] = useState<number | null>(startIndex);
 
@@ -75,7 +82,10 @@ export function useViewerState(options: UseViewerStateOptions): ViewerStateResul
   const activate = useCallback(
     (index: number | null) => {
       setActiveIndex(index);
-      callbacks.current.onActiveCitationChange?.(index, index === null ? null : (citations[index] ?? null));
+      callbacks.current.onActiveCitationChange?.(
+        index,
+        index === null ? null : (citations[index] ?? null),
+      );
     },
     [citations],
   );
