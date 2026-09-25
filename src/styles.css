@@ -178,10 +178,33 @@
 /* Highlights -------------------------------------------------------------- */
 
 .pdf-anchor-highlight {
-  background-color: var(--pdf-anchor-highlight-color, var(--pdf-anchor-highlight));
+  background-color: var(--pdf-anchor-highlight);
   border-radius: 2px;
   cursor: pointer;
   transition: background-color 0.15s ease;
+}
+
+/* A per-citation color is made translucent so the page text underneath stays readable. */
+@supports (background: color-mix(in srgb, red 40%, transparent)) {
+  .pdf-anchor-highlight {
+    background-color: color-mix(
+      in srgb,
+      var(--pdf-anchor-highlight-color, transparent) 40%,
+      transparent
+    );
+  }
+
+  .pdf-anchor-highlight:not([style*='--pdf-anchor-highlight-color']) {
+    background-color: var(--pdf-anchor-highlight);
+  }
+
+  .pdf-anchor-highlight--active:not([style*='--pdf-anchor-highlight-color']) {
+    background-color: var(--pdf-anchor-highlight-active);
+  }
+
+  .pdf-anchor-highlight--active[style*='--pdf-anchor-highlight-color'] {
+    background-color: color-mix(in srgb, var(--pdf-anchor-highlight-color) 65%, transparent);
+  }
 }
 
 .pdf-anchor-highlight--active {
