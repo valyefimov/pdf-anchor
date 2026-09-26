@@ -1,0 +1,79 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Length 703 >>
+stream
+BT /F2 16 Tf 56 760 Td (DISCHARGE SUMMARY) Tj ET
+BT /F1 12 Tf 56 738 Td (Patient: Jane Roe     Admitted: 2026-03-02     Discharged: 2026-03-09) Tj ET
+BT /F1 12 Tf 56 716 Td () Tj ET
+BT /F1 12 Tf 56 694 Td (Reason for admission) Tj ET
+BT /F1 12 Tf 56 672 Td (The patient was admitted with chest pain radiating to the left arm.) Tj ET
+BT /F1 12 Tf 56 650 Td (An ECG and troponin series ruled out an acute myocardial infarction.) Tj ET
+BT /F1 12 Tf 56 628 Td () Tj ET
+BT /F1 12 Tf 56 606 Td (Past medical history) Tj ET
+BT /F1 12 Tf 56 584 Td (Type 2 diabetes mellitus, diagnosed in 2019 and treated with metformin.) Tj ET
+BT /F1 12 Tf 56 562 Td (Hypertension controlled with lisinopril 10 mg daily.) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 445 >>
+stream
+BT /F2 16 Tf 56 760 Td (MEDICATION LIST) Tj ET
+BT /F1 12 Tf 56 738 Td () Tj ET
+BT /F1 12 Tf 56 716 Td (Metformin 500 mg twice daily with meals.) Tj ET
+BT /F1 12 Tf 56 694 Td (Lisinopril 10 mg once daily in the morning.) Tj ET
+BT /F1 12 Tf 56 672 Td (Atorvastatin 20 mg nightly.) Tj ET
+BT /F1 12 Tf 56 650 Td () Tj ET
+BT /F1 12 Tf 56 628 Td (Allergies) Tj ET
+BT /F1 12 Tf 56 606 Td (Penicillin causes a rash. No other known drug allergies.) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 396 >>
+stream
+BT /F2 16 Tf 56 760 Td (FOLLOW UP) Tj ET
+BT /F1 12 Tf 56 738 Td () Tj ET
+BT /F1 12 Tf 56 716 Td (Follow up with the primary care physician in two weeks.) Tj ET
+BT /F1 12 Tf 56 694 Td (Repeat the HbA1c test in three months.) Tj ET
+BT /F1 12 Tf 56 672 Td (Return to the emergency department if chest pain recurs,) Tj ET
+BT /F1 12 Tf 56 650 Td (or if shortness of breath or fainting develops.) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000128 00000 n 
+0000000198 00000 n 
+0000000273 00000 n 
+0000001027 00000 n 
+0000001163 00000 n 
+0000001659 00000 n 
+0000001795 00000 n 
+0000002242 00000 n 
+trailer
+<< /Size 11 /Root 1 0 R >>
+startxref
+2379
+%%EOF
