@@ -1,3 +1,4 @@
+import '@fontsource-variable/inter';
 import { configurePdfWorker } from 'pdf-anchor';
 import 'pdf-anchor/styles.css';
 import workerSrc from 'pdfjs-dist/build/pdf.worker.min.mjs?url';

@@ -22,7 +22,7 @@ export function ThemedDemo() {
       theme={{
         accent: '#38bdf8',
         radius: '12px',
-        fontFamily: 'Georgia, serif',
+        fontFamily: "Georgia, 'Times New Roman', serif",
         highlight: 'rgba(56, 189, 248, 0.35)',
         highlightActive: 'rgba(56, 189, 248, 0.6)',
       }}
