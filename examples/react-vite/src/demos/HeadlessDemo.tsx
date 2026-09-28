@@ -6,7 +6,7 @@ import { SAMPLE_PDF, citations } from '../citations';
 /** Bring your own UI: only the matching/highlighting is taken from pdf-anchor. */
 export function HeadlessDemo() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [page, setPage] = useState(2);
+  const [page, setPage] = useState(3);
   const [active, setActive] = useState(0);
   const pageCitations = citations.filter((citation) => citation.page === page);
 
@@ -19,7 +19,7 @@ export function HeadlessDemo() {
   return (
     <div style={{ padding: 16, fontFamily: 'system-ui' }}>
       <p>
-        {[1, 2, 3].map((n) => (
+        {[1, 2, 3, 4, 5, 6].map((n) => (
           <button
             key={n}
             type="button"
