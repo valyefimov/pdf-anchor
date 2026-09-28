@@ -3,7 +3,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R] /Count 3 >>
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R 12 0 R 14 0 R 16 0 R] /Count 6 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
@@ -12,68 +12,166 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 5 0 obj
-<< /Length 703 >>
+<< /Length 1426 >>
 stream
-BT /F2 16 Tf 56 760 Td (DISCHARGE SUMMARY) Tj ET
-BT /F1 12 Tf 56 738 Td (Patient: Jane Roe     Admitted: 2026-03-02     Discharged: 2026-03-09) Tj ET
-BT /F1 12 Tf 56 716 Td () Tj ET
-BT /F1 12 Tf 56 694 Td (Reason for admission) Tj ET
-BT /F1 12 Tf 56 672 Td (The patient was admitted with chest pain radiating to the left arm.) Tj ET
-BT /F1 12 Tf 56 650 Td (An ECG and troponin series ruled out an acute myocardial infarction.) Tj ET
-BT /F1 12 Tf 56 628 Td () Tj ET
-BT /F1 12 Tf 56 606 Td (Past medical history) Tj ET
-BT /F1 12 Tf 56 584 Td (Type 2 diabetes mellitus, diagnosed in 2019 and treated with metformin.) Tj ET
-BT /F1 12 Tf 56 562 Td (Hypertension controlled with lisinopril 10 mg daily.) Tj ET
+BT /F2 15 Tf 56 742.0 Td (DISCHARGE SUMMARY) Tj ET
+BT /F1 11 Tf 56 720.0 Td (Patient: Jane Roe. Date of birth: 1958-06-14. Admitted: 2026-03-02. Discharged: 2026-03-09.) Tj ET
+BT /F1 11 Tf 56 704.5 Td (Attending physician: Dr. Alan Whitfield, Department of Internal Medicine.) Tj ET
+BT /F2 15 Tf 56 675.0 Td (Reason for admission) Tj ET
+BT /F1 11 Tf 56 653.0 Td (The patient was admitted with chest pain radiating to the left arm that began two hours) Tj ET
+BT /F1 11 Tf 56 637.5 Td (before arrival. She described the pain as pressure-like, rated seven out of ten, and) Tj ET
+BT /F1 11 Tf 56 622.0 Td (associated with mild nausea and sweating. An ECG and a serial troponin series ruled out an) Tj ET
+BT /F1 11 Tf 56 606.5 Td (acute myocardial infarction.) Tj ET
+BT /F2 15 Tf 56 577.0 Td (Past medical history) Tj ET
+BT /F1 11 Tf 56 555.0 Td (Type 2 diabetes mellitus, diagnosed in 2019 and treated with metformin. Hypertension) Tj ET
+BT /F1 11 Tf 56 539.5 Td (controlled with lisinopril 10 mg daily. Hyperlipidemia managed with atorvastatin. No prior) Tj ET
+BT /F1 11 Tf 56 524.0 Td (surgeries other than an uncomplicated appendectomy in 1984.) Tj ET
+BT /F2 15 Tf 56 494.5 Td (Social history) Tj ET
+BT /F1 11 Tf 56 472.5 Td (Retired schoolteacher. Never smoked. Drinks one glass of wine on weekends. Walks thirty) Tj ET
+BT /F1 11 Tf 56 457.0 Td (minutes most days and lives with her husband, who is her primary support.) Tj ET
 endstream
 endobj
 6 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
 endobj
 7 0 obj
-<< /Length 445 >>
+<< /Length 1364 >>
 stream
-BT /F2 16 Tf 56 760 Td (MEDICATION LIST) Tj ET
-BT /F1 12 Tf 56 738 Td () Tj ET
-BT /F1 12 Tf 56 716 Td (Metformin 500 mg twice daily with meals.) Tj ET
-BT /F1 12 Tf 56 694 Td (Lisinopril 10 mg once daily in the morning.) Tj ET
-BT /F1 12 Tf 56 672 Td (Atorvastatin 20 mg nightly.) Tj ET
-BT /F1 12 Tf 56 650 Td () Tj ET
-BT /F1 12 Tf 56 628 Td (Allergies) Tj ET
-BT /F1 12 Tf 56 606 Td (Penicillin causes a rash. No other known drug allergies.) Tj ET
+BT /F2 15 Tf 56 742.0 Td (HOSPITAL COURSE) Tj ET
+BT /F1 11 Tf 56 720.0 Td (On arrival the patient was hemodynamically stable with a blood pressure of 148 over 86 and a) Tj ET
+BT /F1 11 Tf 56 704.5 Td (heart rate of 82 beats per minute. Oxygen saturation was 97 percent on room air. She was) Tj ET
+BT /F1 11 Tf 56 689.0 Td (started on aspirin and monitored on telemetry for the first twenty-four hours.) Tj ET
+BT /F1 11 Tf 56 667.5 Td (Serial troponin values at zero, three and six hours remained within normal limits. A resting) Tj ET
+BT /F1 11 Tf 56 652.0 Td (echocardiogram showed preserved left ventricular function with an ejection fraction of 60) Tj ET
+BT /F1 11 Tf 56 636.5 Td (percent and no wall motion abnormalities.) Tj ET
+BT /F1 11 Tf 56 615.0 Td (A stress test on the fourth hospital day demonstrated a small reversible defect in the) Tj ET
+BT /F1 11 Tf 56 599.5 Td (inferior wall. Cardiology recommended a coronary angiogram, which showed a single 60 percent) Tj ET
+BT /F1 11 Tf 56 584.0 Td (stenosis of the right coronary artery that was managed medically.) Tj ET
+BT /F2 15 Tf 56 554.5 Td (Complications) Tj ET
+BT /F1 11 Tf 56 532.5 Td (There were no in-hospital complications. A transient rise in blood glucose to 240 mg/dL on) Tj ET
+BT /F1 11 Tf 56 517.0 Td (the second day resolved after a temporary adjustment of the insulin sliding scale.) Tj ET
 endstream
 endobj
 8 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
 endobj
 9 0 obj
-<< /Length 396 >>
+<< /Length 1237 >>
 stream
-BT /F2 16 Tf 56 760 Td (FOLLOW UP) Tj ET
-BT /F1 12 Tf 56 738 Td () Tj ET
-BT /F1 12 Tf 56 716 Td (Follow up with the primary care physician in two weeks.) Tj ET
-BT /F1 12 Tf 56 694 Td (Repeat the HbA1c test in three months.) Tj ET
-BT /F1 12 Tf 56 672 Td (Return to the emergency department if chest pain recurs,) Tj ET
-BT /F1 12 Tf 56 650 Td (or if shortness of breath or fainting develops.) Tj ET
+BT /F2 15 Tf 56 742.0 Td (MEDICATIONS AT DISCHARGE) Tj ET
+BT /F1 11 Tf 56 720.0 Td (-) Tj ET
+BT /F1 11 Tf 70 720.0 Td (Metformin 500 mg twice daily with meals.) Tj ET
+BT /F1 11 Tf 56 704.5 Td (-) Tj ET
+BT /F1 11 Tf 70 704.5 Td (Lisinopril 10 mg once daily in the morning.) Tj ET
+BT /F1 11 Tf 56 689.0 Td (-) Tj ET
+BT /F1 11 Tf 70 689.0 Td (Atorvastatin 40 mg nightly, increased from 20 mg.) Tj ET
+BT /F1 11 Tf 56 673.5 Td (-) Tj ET
+BT /F1 11 Tf 70 673.5 Td (Aspirin 81 mg once daily.) Tj ET
+BT /F1 11 Tf 56 658.0 Td (-) Tj ET
+BT /F1 11 Tf 70 658.0 Td (Metoprolol succinate 25 mg once daily, newly started.) Tj ET
+BT /F1 11 Tf 56 642.5 Td (-) Tj ET
+BT /F1 11 Tf 70 642.5 Td (Nitroglycerin 0.4 mg sublingual as needed for chest pain.) Tj ET
+BT /F2 15 Tf 56 613.0 Td (Allergies) Tj ET
+BT /F1 11 Tf 56 591.0 Td (Penicillin causes a rash. No other known drug allergies. The patient carries a wallet card) Tj ET
+BT /F1 11 Tf 56 575.5 Td (listing the reaction.) Tj ET
+BT /F2 15 Tf 56 546.0 Td (Medications stopped) Tj ET
+BT /F1 11 Tf 56 524.0 Td (Ibuprofen was stopped because of its interaction with lisinopril and the risk of kidney) Tj ET
+BT /F1 11 Tf 56 508.5 Td (injury. The patient was advised to use acetaminophen for minor aches.) Tj ET
 endstream
 endobj
 10 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
 endobj
+11 0 obj
+<< /Length 1116 >>
+stream
+BT /F2 15 Tf 56 742.0 Td (LABORATORY RESULTS) Tj ET
+BT /F1 11 Tf 56 720.0 Td (-) Tj ET
+BT /F1 11 Tf 70 720.0 Td (Hemoglobin A1c: 7.4 percent, above the target of 7.0 percent.) Tj ET
+BT /F1 11 Tf 56 704.5 Td (-) Tj ET
+BT /F1 11 Tf 70 704.5 Td (Fasting glucose: 142 mg/dL.) Tj ET
+BT /F1 11 Tf 56 689.0 Td (-) Tj ET
+BT /F1 11 Tf 70 689.0 Td (Creatinine: 0.9 mg/dL with an estimated glomerular filtration rate of 78.) Tj ET
+BT /F1 11 Tf 56 673.5 Td (-) Tj ET
+BT /F1 11 Tf 70 673.5 Td (LDL cholesterol: 118 mg/dL before the statin dose was increased.) Tj ET
+BT /F1 11 Tf 56 658.0 Td (-) Tj ET
+BT /F1 11 Tf 70 658.0 Td (Potassium: 4.2 mmol/L. Sodium: 139 mmol/L.) Tj ET
+BT /F1 11 Tf 56 642.5 Td (-) Tj ET
+BT /F1 11 Tf 70 642.5 Td (Troponin I: below 0.01 ng/mL at all three measurements.) Tj ET
+BT /F2 15 Tf 56 613.0 Td (Imaging) Tj ET
+BT /F1 11 Tf 56 591.0 Td (Chest radiograph showed clear lung fields and a normal cardiac silhouette. Coronary) Tj ET
+BT /F1 11 Tf 56 575.5 Td (angiography confirmed a single 60 percent stenosis of the right coronary artery without flow) Tj ET
+BT /F1 11 Tf 56 560.0 Td (limitation.) Tj ET
+endstream
+endobj
+12 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 11 0 R >>
+endobj
+13 0 obj
+<< /Length 1221 >>
+stream
+BT /F2 15 Tf 56 742.0 Td (ASSESSMENT AND PLAN) Tj ET
+BT /F1 11 Tf 56 720.0 Td (Chest pain with a negative myocardial infarction work-up and moderate single-vessel coronary) Tj ET
+BT /F1 11 Tf 56 704.5 Td (disease. The pain is most consistent with stable angina. Optimal medical therapy was started) Tj ET
+BT /F1 11 Tf 56 689.0 Td (and cardiac risk factors were addressed.) Tj ET
+BT /F1 11 Tf 56 667.5 Td (-) Tj ET
+BT /F1 11 Tf 70 667.5 Td (Continue aspirin, atorvastatin and metoprolol indefinitely.) Tj ET
+BT /F1 11 Tf 56 652.0 Td (-) Tj ET
+BT /F1 11 Tf 70 652.0 Td (Intensify diabetes management; the primary care physician will consider adding an SGLT2) Tj ET
+BT /F1 11 Tf 70 636.5 Td (inhibitor.) Tj ET
+BT /F1 11 Tf 56 621.0 Td (-) Tj ET
+BT /F1 11 Tf 70 621.0 Td (Target blood pressure below 130 over 80.) Tj ET
+BT /F1 11 Tf 56 605.5 Td (-) Tj ET
+BT /F1 11 Tf 70 605.5 Td (Enroll in the outpatient cardiac rehabilitation program.) Tj ET
+BT /F2 15 Tf 56 576.0 Td (Diet and activity) Tj ET
+BT /F1 11 Tf 56 554.0 Td (Follow a Mediterranean-style diet low in saturated fat and added sugar. Resume light walking) Tj ET
+BT /F1 11 Tf 56 538.5 Td (immediately and increase gradually. Avoid heavy lifting for two weeks.) Tj ET
+endstream
+endobj
+14 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 13 0 R >>
+endobj
+15 0 obj
+<< /Length 1067 >>
+stream
+BT /F2 15 Tf 56 742.0 Td (FOLLOW UP) Tj ET
+BT /F1 11 Tf 56 720.0 Td (Follow up with the primary care physician in two weeks to review blood pressure and glucose) Tj ET
+BT /F1 11 Tf 56 704.5 Td (logs. Repeat the HbA1c test in three months. Cardiology clinic visit is scheduled in six) Tj ET
+BT /F1 11 Tf 56 689.0 Td (weeks.) Tj ET
+BT /F2 15 Tf 56 659.5 Td (Return precautions) Tj ET
+BT /F1 11 Tf 56 637.5 Td (Return to the emergency department if chest pain recurs, lasts longer than fifteen minutes) Tj ET
+BT /F1 11 Tf 56 622.0 Td (or does not respond to one dose of nitroglycerin, or if shortness of breath, fainting or) Tj ET
+BT /F1 11 Tf 56 606.5 Td (palpitations develop.) Tj ET
+BT /F2 15 Tf 56 577.0 Td (Patient education) Tj ET
+BT /F1 11 Tf 56 555.0 Td (The patient and her husband received written instructions and a medication schedule. They) Tj ET
+BT /F1 11 Tf 56 539.5 Td (verbalized understanding and were able to repeat the warning signs of a heart attack.) Tj ET
+BT /F1 11 Tf 56 518.0 Td (Signed electronically by Dr. Alan Whitfield on 2026-03-09.) Tj ET
+endstream
+endobj
+16 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 15 0 R >>
+endobj
 xref
-0 11
+0 17
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
-0000000128 00000 n 
-0000000198 00000 n 
-0000000273 00000 n 
-0000001027 00000 n 
-0000001163 00000 n 
-0000001659 00000 n 
-0000001795 00000 n 
-0000002242 00000 n 
+0000000149 00000 n 
+0000000219 00000 n 
+0000000294 00000 n 
+0000001772 00000 n 
+0000001908 00000 n 
+0000003324 00000 n 
+0000003460 00000 n 
+0000004749 00000 n 
+0000004886 00000 n 
+0000006055 00000 n 
+0000006193 00000 n 
+0000007467 00000 n 
+0000007605 00000 n 
+0000008725 00000 n 
 trailer
-<< /Size 11 /Root 1 0 R >>
+<< /Size 17 /Root 1 0 R >>
 startxref
-2379
+8863
 %%EOF
