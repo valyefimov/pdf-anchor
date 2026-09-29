@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { BasicDemo } from './demos/BasicDemo';
+import { DocsDemo } from './demos/DocsDemo';
 import { CustomSlotsDemo } from './demos/CustomSlotsDemo';
 import { HeadlessDemo } from './demos/HeadlessDemo';
 import { ThemedDemo } from './demos/ThemedDemo';
 
 const demos = {
+  Docs: DocsDemo,
   Basic: BasicDemo,
   Themed: ThemedDemo,
   'Custom slots': CustomSlotsDemo,
