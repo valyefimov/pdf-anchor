@@ -40,3 +40,49 @@ You also need react-pdf's text layer styles: `import 'react-pdf/dist/Page/TextLa
 | `color` | `string`             | Highlight color for this citation.                                               |
 | `meta`  | `unknown`            | Carried through to callbacks untouched.                                          |
 
+### Behaviour
+
+| Prop                                | Default                         | Description                                                                                                     |
+| ----------------------------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `initialPage`                       | first citation's page, else `1` | Page to open first.                                                                                             |
+| `initialCitationIndex`              | `0`                             | Citation to activate first.                                                                                     |
+| `citationScope`                     | `'page'`                        | `'page'`: prev/next cycle the current page's citations. `'document'`: they walk all citations and change pages. |
+| `initialScale`                      | `100`                           | Zoom in percent.                                                                                                |
+| `minScale`, `maxScale`, `scaleStep` | `50`, `250`, `10`               | Zoom bounds and step.                                                                                           |
+| `initialRotation`                   | `0`                             | Degrees clockwise (multiple of 90).                                                                             |
+| `highlight`                         |                                 | Matcher and highlighter options, see [core](core.md).                                                           |
+| `scrollToActive`                    | `true`                          | Scroll the active highlight into view.                                                                          |
+
+### Appearance
+
+| Prop                                                   | Description                                                   |
+| ------------------------------------------------------ | ------------------------------------------------------------- |
+| `theme`, `colorScheme`                                 | Design tokens and light/dark/auto. See [theming](theming.md). |
+| `className`, `style`                                   | On the root element.                                          |
+| `classNames`, `styles`                                 | Per-slot overrides.                                           |
+| `labels`                                               | Override built-in texts.                                      |
+| `showHeader`, `showRotate`, `showToolbar`, `showPanel` | Toggle parts (all `true`).                                    |
+| `renderHeader`, `renderPanel`, `renderToolbar`         | Replace a part; receive `{ state, actions, labels }`.         |
+| `renderLoading`, `renderError`                         | Replace the loading / error message.                          |
+
+### Callbacks
+
+| Prop                     | Signature                                                                        |
+| ------------------------ | -------------------------------------------------------------------------------- |
+| `onPageChange`           | `(page: number) => void`                                                         |
+| `onActiveCitationChange` | `(index: number \| null, citation: PdfCitation \| null) => void`                 |
+| `onHighlight`            | `(results: HighlightResult[], page: number) => void`, after each page is matched |
+| `onDocumentLoad`         | `({ numPages }) => void`                                                         |
+| `onLoadError`            | `(error: Error) => void`, after the fallback also failed                         |
+
+### Render context
+
+`state`: `page`, `numPages`, `scale`, `rotation`, `citations`, `pageCitations`, `citationPages`, `activeIndex`, `activeCitation`, `activePosition`, `scopeCount`, `activeFound`.
+
+`actions`: `goToPage`, `nextPage`, `previousPage`, `zoomIn`, `zoomOut`, `setScale`, `rotateLeft`, `rotateRight`, `selectCitation(index)`, `nextCitation`, `previousCitation`.
+
+### Interaction
+
+- Click a highlighted fragment to activate its citation.
+- Prev/next in the panel move between citations; the page links in the toolbar jump to a citation page.
+
