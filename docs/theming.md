@@ -56,3 +56,30 @@ The same variables can be set from your own CSS on `.pdf-anchor`, which is handy
 
 The default stack starts with `Inter Variable` / `Inter` and falls back to the system UI font. The package does not download fonts. To get Inter, install it yourself, for example `npm i @fontsource-variable/inter` and `import '@fontsource-variable/inter'`.
 
+## 3. Per-element overrides (`classNames`, `styles`)
+
+Every part of the UI is a named _slot_:
+
+`root`, `header`, `headerTitle`, `headerSubtitle`, `headerActions`, `viewport`, `documentFrame`, `footer`, `panel`, `panelHeading`, `panelDescription`, `panelDivider`, `citation`, `citationTitle`, `citationQuote`, `citationCounter`, `toolbar`, `pageLinks`, `pageLink`, `zoom`, `button`, `status`.
+
+```tsx
+<PdfAnchorViewer
+  classNames={{ panel: 'my-panel', button: 'btn btn-round' }}
+  styles={{ header: { background: '#fef3c7' }, citationQuote: { fontStyle: 'italic' } }}
+/>
+```
+
+Class names are appended to the defaults; inline styles win over the stylesheet.
+
+## 4. Replace whole sections (render props)
+
+```tsx
+<PdfAnchorViewer
+  renderToolbar={({ state, actions, labels }) => (
+    <MyToolbar page={state.page} onNext={actions.nextPage} />
+  )}
+/>
+```
+
+`renderHeader`, `renderPanel`, `renderToolbar`, `renderLoading` and `renderError` replace the corresponding built-in part. The first three receive the current `state`, the `actions` and the `labels`.
+
