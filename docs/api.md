@@ -86,3 +86,38 @@ You also need react-pdf's text layer styles: `import 'react-pdf/dist/Page/TextLa
 - Click a highlighted fragment to activate its citation.
 - Prev/next in the panel move between citations; the page links in the toolbar jump to a citation page.
 
+## `useCitationHighlights(options)`
+
+Headless hook for building your own UI on top of react-pdf.
+
+```tsx
+const containerRef = useRef<HTMLDivElement>(null);
+const { results, notifyTextLayerRendered } = useCitationHighlights({
+  containerRef,
+  citations: pageCitations, // only the citations of the rendered page
+  activeIndex, // index into pageCitations, or null
+});
+
+<div ref={containerRef}>
+  <Document file={file}>
+    <Page pageNumber={page} onRenderTextLayerSuccess={notifyTextLayerRendered} />
+  </Document>
+</div>;
+```
+
+| Option           | Description                                                    |
+| ---------------- | -------------------------------------------------------------- |
+| `containerRef`   | Element that contains the text layer.                          |
+| `citations`      | Citations of the rendered page.                                |
+| `activeIndex`    | Which one to emphasise.                                        |
+| `highlight`      | Matcher/highlighter options. Read when the text layer renders. |
+| `scrollToActive` | Default `true`.                                                |
+| `onResults`      | Called with the `HighlightResult[]`.                           |
+
+## Other exports
+
+`defaultLabels`, `themeToStyle`, and everything from [`pdf-anchor/core`](core.md). All types are exported.
+
+## Next.js and other SSR frameworks
+
+The viewer touches the DOM and pdf.js, so render it on the client: add `'use client'` to the file that uses it (App Router) or load it with `next/dynamic(..., { ssr: false })`.
