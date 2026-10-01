@@ -83,3 +83,29 @@ Class names are appended to the defaults; inline styles win over the stylesheet.
 
 `renderHeader`, `renderPanel`, `renderToolbar`, `renderLoading` and `renderError` replace the corresponding built-in part. The first three receive the current `state`, the `actions` and the `labels`.
 
+## Highlight appearance
+
+Highlights are `.pdf-anchor-highlight` elements; the active one also has `.pdf-anchor-highlight--active`.
+
+```css
+.pdf-anchor-highlight {
+  border-radius: 4px;
+}
+.pdf-anchor-highlight--active {
+  outline-width: 3px;
+}
+```
+
+A citation's `color` is applied as `--pdf-anchor-highlight-color` and rendered translucent so the page text stays readable.
+
+## Labels
+
+Override any built-in text, for localisation or wording:
+
+```tsx
+<PdfAnchorViewer labels={{ citationOf: (n, total) => `${n} / ${total}`, zoomIn: 'Larger' }} />
+```
+
+## Layout notes
+
+The viewer fills its container's width and grows with the page. Header and footer are `position: sticky`, so give the viewer a scrolling ancestor (usually the window). To embed it in a fixed-height box, wrap it in an element with `height` and `overflow: auto`.
