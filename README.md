@@ -145,3 +145,32 @@ scrollToHighlight(setActiveHighlight(container, 0));
 
 The core only needs a DOM with a rendered pdf.js text layer. See [Core](docs/core.md).
 
+## How it works
+
+pdf.js renders each page's text as DOM spans. pdf-anchor flattens them into one word list, finds the longest run of words shared with your quote using `string-best-match`, and marks the spans that own those words. The details, thresholds (`minMatchWords`, `minMatchRatio`) and limits are in [How it works](docs/how-it-works.md).
+
+Good to know: highlighting is per text-layer span, and the PDF must have a text layer (scanned images need OCR first).
+
+## Security
+
+- No `innerHTML`, `eval` or dynamic code. Titles, quotes and labels are rendered as React text.
+- Citation colors are set as CSS custom properties, never as markup.
+- The `file` you pass is loaded by pdf.js. Only load PDFs from sources you trust and set your CSP accordingly. Keep `pdfjs-dist` up to date.
+- Report vulnerabilities as described in [SECURITY.md](SECURITY.md).
+
+## Development
+
+```bash
+npm install
+npm run typecheck && npm run lint && npm test   # checks
+npm run build                                   # dist/
+
+cd examples/react-vite && npm install && npm run dev   # demo app
+node scripts/make-sample-pdf.mjs                       # regenerate the sample PDF
+```
+
+Contributions are welcome, see [CONTRIBUTING.md](CONTRIBUTING.md). Agents working in this repository should read [AGENTS.md](AGENTS.md).
+
+## License
+
+MIT © Valentyn Yefimov
