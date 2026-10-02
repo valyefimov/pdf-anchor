@@ -82,3 +82,18 @@ configurePdfWorker('/static/pdf.worker.min.mjs');
 
 </details>
 
+## Where you can use it
+
+| Use case                                               | What the citations are                                                                                       |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| **AI answers with sources (RAG, chat over documents)** | The passages the model retrieved or quoted. Readers verify the answer in one click.                          |
+| **Clinical and insurance record review**               | Facts extracted from charts, referrals and claims, shown on the page they came from.                         |
+| **Legal and contract review**                          | Clauses flagged by a model or a reviewer: termination, liability, renewal terms.                             |
+| **Compliance and audit trails**                        | Evidence for each control or finding, so an auditor can see the proof next to the claim.                     |
+| **Document data extraction QA**                        | Invoice numbers, totals, dates, parties. Reviewers confirm or correct extracted fields against the original. |
+| **Research and paper reading**                         | Quotes and key results collected by a tool, with a jump to the exact sentence.                               |
+| **Customer support and knowledge bases**               | Link a support answer to the paragraph of the manual or policy it was based on.                              |
+| **E-discovery and investigations**                     | Hits for a search term set, reviewed one by one.                                                             |
+| **Education and annotation**                           | Teachers or students attach highlights to the right line of a reading.                                       |
+| **Browser extensions and internal tools**              | A drop-in "open this PDF at the evidence" page. The viewer needs only a URL and a list of strings.           |
+
