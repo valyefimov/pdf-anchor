@@ -40,3 +40,45 @@ npm install pdf-anchor react react-dom react-pdf pdfjs-dist
 
 `react`, `react-dom` and `react-pdf` are peer dependencies (`react` 18 or 19, `react-pdf` 10 or 11). They are optional if you only use [`pdf-anchor/core`](docs/core.md). Install the `pdfjs-dist` version that your `react-pdf` release depends on.
 
+## Quick start
+
+```tsx
+import { PdfAnchorViewer, configurePdfWorker } from 'pdf-anchor';
+import 'pdf-anchor/styles.css';
+import 'react-pdf/dist/Page/TextLayer.css';
+import workerSrc from 'pdfjs-dist/build/pdf.worker.min.mjs?url'; // Vite; see below for other bundlers
+
+configurePdfWorker(workerSrc); // once, at startup
+
+export function Report() {
+  return (
+    <PdfAnchorViewer
+      file="/records/discharge-summary.pdf"
+      title="Jane Roe"
+      subtitle="discharge-summary.pdf"
+      heading="Does the patient have diabetes?"
+      description="The record documents type 2 diabetes treated with metformin."
+      citations={[
+        { page: 1, title: 'Diagnosis', text: 'Type 2 diabetes mellitus, diagnosed in 2019' },
+        { page: 3, title: 'Medication', text: ['Metformin 500 mg', 'twice daily with meals'] },
+      ]}
+    />
+  );
+}
+```
+
+The viewer opens on the first citation's page, highlights what it finds, and shows the active quote in the panel at the bottom. Click a highlight, use the arrows, or jump to a page from the _Citations_ links.
+
+<details>
+<summary>Worker setup for other bundlers</summary>
+
+```ts
+// webpack 5 / Next.js
+configurePdfWorker(new URL('pdfjs-dist/build/pdf.worker.min.mjs', import.meta.url));
+
+// or serve the file yourself
+configurePdfWorker('/static/pdf.worker.min.mjs');
+```
+
+</details>
+
