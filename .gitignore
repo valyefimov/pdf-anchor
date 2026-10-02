@@ -11,3 +11,4 @@ coverage/
 examples/**/node_modules/
 examples/**/dist/
 .claude/settings.local.json
+.claude/launch.json
