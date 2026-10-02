@@ -97,3 +97,51 @@ configurePdfWorker('/static/pdf.worker.min.mjs');
 | **Education and annotation**                           | Teachers or students attach highlights to the right line of a reading.                                       |
 | **Browser extensions and internal tools**              | A drop-in "open this PDF at the evidence" page. The viewer needs only a URL and a list of strings.           |
 
+## Customize
+
+```tsx
+<PdfAnchorViewer
+  file={url}
+  citations={citations}
+  colorScheme="auto" // 'light' | 'dark' | 'auto'
+  theme={{ accent: '#0ea5e9', radius: '12px' }} // design tokens -> CSS variables
+  classNames={{ panel: 'my-panel' }} // per-element classes
+  styles={{ header: { background: '#fef3c7' } }} // per-element inline styles
+  labels={{ citationOf: (n, total) => `${n} / ${total}` }}
+  renderToolbar={({ state, actions }) => <MyToolbar {...state} {...actions} />}
+/>
+```
+
+Give individual citations a `color`, show only the parts you want (`showHeader`, `showPanel`, `showToolbar`, `showRotate`), or walk the whole document with `citationScope="document"`. Everything is covered in [Theming](docs/theming.md) and the [API reference](docs/api.md).
+
+## Build your own UI
+
+```tsx
+const containerRef = useRef<HTMLDivElement>(null);
+const { results, notifyTextLayerRendered } = useCitationHighlights({
+  containerRef,
+  citations: pageCitations,
+  activeIndex,
+});
+
+<div ref={containerRef}>
+  <Document file={file}>
+    <Page pageNumber={page} onRenderTextLayerSuccess={notifyTextLayerRendered} />
+  </Document>
+</div>;
+```
+
+`results[i].found` tells you whether each citation was located, so you can flag quotes that do not appear in the document.
+
+## Without React
+
+```ts
+import { highlightCitations, setActiveHighlight, scrollToHighlight } from 'pdf-anchor/core';
+import 'pdf-anchor/styles.css';
+
+const results = highlightCitations(container, [{ page: 1, text: 'total amount due' }]);
+scrollToHighlight(setActiveHighlight(container, 0));
+```
+
+The core only needs a DOM with a rendered pdf.js text layer. See [Core](docs/core.md).
+
