@@ -38,7 +38,7 @@ AI answers, extracted fields and audit findings are only trustworthy if a human 
 npm install pdf-anchor react react-dom react-pdf pdfjs-dist
 ```
 
-`react`, `react-dom` and `react-pdf` are peer dependencies (`react` 18 or 19, `react-pdf` 10 or 11). They are optional if you only use [`pdf-anchor/core`](docs/core.md). Install the `pdfjs-dist` version that your `react-pdf` release depends on.
+`react`, `react-dom` and `react-pdf` are peer dependencies (`react` 18 or 19, `react-pdf` 11). They are optional if you only use [`pdf-anchor/core`](docs/core.md). Install the `pdfjs-dist` version that your `react-pdf` release depends on.
 
 ## Quick start
 
