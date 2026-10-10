@@ -18,9 +18,11 @@ export function Header({ title, subtitle, showRotate, actions }: HeaderProps) {
 
   return (
     <header {...slot('header', 'pdf-anchor__header')}>
-      <div className="pdf-anchor__header-text">
+      <div {...slot('headerText', 'pdf-anchor__header-text')}>
         {title !== undefined && <h1 {...slot('headerTitle', 'pdf-anchor__title')}>{title}</h1>}
-        {title !== undefined && hasSubtitle && <span className="pdf-anchor__header-divider" />}
+        {title !== undefined && hasSubtitle && (
+          <span {...slot('headerDivider', 'pdf-anchor__header-divider')} />
+        )}
         {hasSubtitle && <p {...slot('headerSubtitle', 'pdf-anchor__subtitle')}>{subtitle}</p>}
       </div>
       {showRotate && (
