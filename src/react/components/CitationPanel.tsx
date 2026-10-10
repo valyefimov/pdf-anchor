@@ -30,7 +30,7 @@ export function CitationPanel({ heading, description, state, actions }: Citation
 
   return (
     <section className={panel.className} style={{ ...citationColor, ...panel.style }}>
-      <div className="pdf-anchor__panel-main">
+      <div {...slot('panelMain', 'pdf-anchor__panel-main')}>
         {heading !== undefined && (
           <h2 {...slot('panelHeading', 'pdf-anchor__panel-heading')}>{heading}</h2>
         )}
@@ -40,7 +40,7 @@ export function CitationPanel({ heading, description, state, actions }: Citation
       </div>
       <div {...slot('panelDivider', 'pdf-anchor__panel-divider')} />
       <div {...slot('citation', 'pdf-anchor__citation')}>
-        <div className="pdf-anchor__citation-head">
+        <div {...slot('citationHead', 'pdf-anchor__citation-head')}>
           {activeCitation.title && (
             <h3 {...slot('citationTitle', 'pdf-anchor__citation-title')}>{activeCitation.title}</h3>
           )}
@@ -66,7 +66,7 @@ export function CitationPanel({ heading, description, state, actions }: Citation
         </div>
         <p {...slot('citationQuote', 'pdf-anchor__citation-quote')}>{quote}</p>
         {activeFound === false && (
-          <p className="pdf-anchor__citation-note" role="status">
+          <p {...slot('citationNote', 'pdf-anchor__citation-note')} role="status">
             {labels.notFoundOnPage}
           </p>
         )}
