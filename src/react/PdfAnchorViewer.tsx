@@ -17,7 +17,7 @@ function Status({ message, busy }: { message: string; busy?: boolean }) {
   const slot = useSlot();
   return (
     <div {...slot('status', 'pdf-anchor__status')} role={busy ? 'status' : 'alert'}>
-      {busy && <div className="pdf-anchor__spinner" />}
+      {busy && <div {...slot('spinner', 'pdf-anchor__spinner')} />}
       {message}
     </div>
   );

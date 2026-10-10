@@ -18,10 +18,12 @@ export function Toolbar({ state, actions, minScale, maxScale }: ToolbarProps) {
 
   return (
     <nav {...slot('toolbar', 'pdf-anchor__toolbar')} aria-label="PDF controls">
-      <div className="pdf-anchor__toolbar-group">
+      <div {...slot('toolbarGroup', 'pdf-anchor__toolbar-group')}>
         {citationPages.length > 0 && (
           <div {...slot('pageLinks', 'pdf-anchor__page-links')}>
-            <span className="pdf-anchor__page-links-label">{labels.citations}:</span>
+            <span {...slot('pageLinksLabel', 'pdf-anchor__page-links-label')}>
+              {labels.citations}:
+            </span>
             {citationPages.map((citationPage, position) => (
               <Fragment key={citationPage}>
                 <button
@@ -41,7 +43,7 @@ export function Toolbar({ state, actions, minScale, maxScale }: ToolbarProps) {
         )}
       </div>
 
-      <div className="pdf-anchor__toolbar-group pdf-anchor__toolbar-group--center">
+      <div {...slot('toolbarGroup', 'pdf-anchor__toolbar-group pdf-anchor__toolbar-group--center')}>
         <IconButton label={labels.zoomOut} disabled={scale <= minScale} onClick={actions.zoomOut}>
           <MinusIcon />
         </IconButton>
@@ -53,7 +55,7 @@ export function Toolbar({ state, actions, minScale, maxScale }: ToolbarProps) {
         </IconButton>
       </div>
 
-      <div className="pdf-anchor__toolbar-group pdf-anchor__toolbar-group--end">
+      <div {...slot('toolbarGroup', 'pdf-anchor__toolbar-group pdf-anchor__toolbar-group--end')}>
         <IconButton label={labels.previousPage} disabled={page <= 1} onClick={actions.previousPage}>
           <ArrowUpIcon />
         </IconButton>
