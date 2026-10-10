@@ -108,6 +108,94 @@ const pages = [
   ],
 ];
 
+// Extra narrative used to fill the remainder of every page, so each page is full of text.
+const filler = [
+  [
+    h('Nursing notes'),
+    p(
+      'Vital signs were recorded every four hours. The patient slept well on the second night and reported that the chest pressure had settled completely. She tolerated a regular cardiac diet and drank at least two liters of fluid per day. Skin was intact and the intravenous site remained clean and dry throughout the stay.',
+    ),
+  ],
+  [
+    h('Physical examination'),
+    p(
+      'The patient was alert, oriented and in no acute distress. The cardiac examination revealed a regular rate and rhythm with no murmurs, rubs or gallops. Lungs were clear to auscultation bilaterally. The abdomen was soft and non-tender. There was no peripheral edema and distal pulses were symmetric.',
+    ),
+  ],
+  [
+    h('Family history'),
+    p(
+      'Her father had a myocardial infarction at the age of 61 and her mother has hypertension. One brother has type 2 diabetes. There is no known family history of sudden cardiac death, cardiomyopathy or inherited arrhythmias.',
+    ),
+  ],
+  [
+    h('Review of systems'),
+    p(
+      'The patient denied fever, chills, cough, abdominal pain, headache and recent weight change. She reported occasional mild fatigue over the past month. No orthopnea, no paroxysmal nocturnal dyspnea and no history of syncope were reported.',
+    ),
+  ],
+  [
+    h('Consultation: cardiology'),
+    p(
+      'Cardiology reviewed the electrocardiogram, the echocardiogram and the stress test results. The consultant agreed that the presentation was consistent with stable angina and recommended guideline-directed medical therapy, risk factor modification and a structured exercise program.',
+    ),
+  ],
+  [
+    h('Consultation: nutrition'),
+    p(
+      "A dietitian reviewed the patient's eating habits and provided written guidance on portion sizes, carbohydrate counting and sodium reduction. The patient agreed to keep a food diary for the next month and to bring it to her next appointment.",
+    ),
+  ],
+  [
+    h('Consultation: pharmacy'),
+    p(
+      'A clinical pharmacist reconciled the home medication list with the discharge orders, confirmed that there were no duplicate therapies and reviewed the correct use of sublingual nitroglycerin, including storage, dosing and when to call for help.',
+    ),
+  ],
+  [
+    h('Functional status'),
+    p(
+      'At discharge the patient was independent in all activities of daily living and walked the length of the unit without assistance or symptoms. She climbed one flight of stairs with no chest discomfort and no shortness of breath.',
+    ),
+  ],
+  [
+    h('Care coordination'),
+    p(
+      'The discharge plan was discussed with the patient, her husband and the primary care office. Transportation home was arranged by the family. The cardiac rehabilitation program will contact the patient by telephone within five business days to schedule an intake visit.',
+    ),
+  ],
+  [
+    h('Immunizations'),
+    p(
+      'Influenza vaccination for the current season was administered during the admission. Pneumococcal vaccination is up to date. The patient was advised to review her tetanus and shingles vaccination status with her primary care physician.',
+    ),
+  ],
+  [
+    h('Risk factor summary'),
+    p(
+      'Modifiable risk factors include suboptimal glycemic control, elevated LDL cholesterol and a sedentary period over the winter months. Non-modifiable factors include age, sex and a family history of premature coronary disease. Blood pressure has been at goal on the current regimen.',
+    ),
+  ],
+  [
+    h('Patient goals'),
+    p(
+      'The patient stated that her main goals are to return to her garden, to travel to visit her grandchildren in the spring and to avoid another hospital stay. These goals were incorporated into the rehabilitation plan and the follow-up schedule.',
+    ),
+  ],
+  [
+    h('Documentation notes'),
+    p(
+      'This summary was prepared from the inpatient record, including the admission note, daily progress notes, consultation reports, laboratory results and imaging reports. Where values are given they are the most recent available at the time of discharge.',
+    ),
+  ],
+  [
+    h('Communication'),
+    p(
+      'Results of all tests completed during the admission were reviewed with the patient before discharge. A copy of this summary, the medication schedule and the cardiac rehabilitation brochure were given to the patient and sent to the primary care physician and the referring cardiologist.',
+    ),
+  ],
+];
+
 // --- tiny PDF writer -------------------------------------------------------------------
 
 const FONT = { h: ['F2', 15, 22], p: ['F1', 11, 15.5] };
@@ -131,9 +219,8 @@ function wrap(text, max) {
   return lines;
 }
 
-function layout(blocks) {
-  const ops = [];
-  let y = 750;
+function layout(blocks, startY = 750, ops = []) {
+  let y = startY;
   const text = (font, size, x, line) => {
     ops.push(`BT /${font} ${size} Tf ${x} ${y.toFixed(1)} Td (${escape(line)}) Tj ET`);
   };
@@ -160,7 +247,7 @@ function layout(blocks) {
       y -= 6;
     }
   });
-  return ops.join('\n');
+  return { ops, y };
 }
 
 const objects = [];
@@ -172,8 +259,28 @@ const regular = add('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>');
 const bold = add('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>');
 const pageRefs = [];
 
-for (const blocks of pages) {
-  const stream = layout(blocks);
+const LOWEST_Y = 56;
+let fillerCursor = 0;
+
+pages.forEach((blocks, pageIndex) => {
+  const first = layout(blocks);
+  let { y } = first;
+  const ops = first.ops;
+
+  // Keep adding extra sections until the page is full.
+  for (let attempts = 0; attempts < filler.length; attempts++) {
+    const section = filler[(fillerCursor + attempts) % filler.length];
+    const probe = layout(section, y, []);
+    if (probe.y < LOWEST_Y) continue;
+    ops.push(...probe.ops);
+    y = probe.y;
+    fillerCursor += attempts + 1;
+    attempts = -1;
+  }
+
+  ops.push(`BT /F1 9 Tf ${LEFT} 36 Td (Jane Roe - Discharge summary) Tj ET`);
+  ops.push(`BT /F1 9 Tf 480 36 Td (Page ${pageIndex + 1} of ${pages.length}) Tj ET`);
+  const stream = ops.join('\n');
   const content = add(`<< /Length ${Buffer.byteLength(stream)} >>\nstream\n${stream}\nendstream`);
   pageRefs.push(
     add(
@@ -181,7 +288,7 @@ for (const blocks of pages) {
         `/Resources << /Font << /F1 ${regular} 0 R /F2 ${bold} 0 R >> >> /Contents ${content} 0 R >>`,
     ),
   );
-}
+});
 
 objects[catalog - 1] = `<< /Type /Catalog /Pages ${pagesRoot} 0 R >>`;
 objects[pagesRoot - 1] =
