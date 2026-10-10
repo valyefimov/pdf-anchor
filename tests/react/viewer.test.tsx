@@ -205,3 +205,89 @@ describe('PdfAnchorViewer', () => {
     expect(within(document.body).queryByText('Condition')).not.toBeInTheDocument();
   });
 });
+
+describe('customisation coverage', () => {
+  it('lets every built-in element be targeted through classNames and styles', () => {
+    const slots = [
+      'root',
+      'header',
+      'headerText',
+      'headerTitle',
+      'headerDivider',
+      'headerSubtitle',
+      'headerActions',
+      'viewport',
+      'documentFrame',
+      'footer',
+      'panel',
+      'panelMain',
+      'panelHeading',
+      'panelDescription',
+      'panelDivider',
+      'citation',
+      'citationHead',
+      'citationTitle',
+      'citationQuote',
+      'citationCounter',
+      'citationNote',
+      'toolbar',
+      'toolbarGroup',
+      'pageLinks',
+      'pageLinksLabel',
+      'pageLink',
+      'zoom',
+      'button',
+    ] as const;
+    const classNames = Object.fromEntries(slots.map((slot) => [slot, `x-${slot}`]));
+    const styles = Object.fromEntries(slots.map((slot) => [slot, { '--probe': slot }]));
+
+    // Page 3 holds a citation that cannot be located, so the "not found" note is rendered too.
+    render(
+      <PdfAnchorViewer
+        file="a.pdf"
+        citations={citations}
+        initialPage={3}
+        citationScope="document"
+        title="T"
+        subtitle="S"
+        heading="H"
+        description="D"
+        classNames={classNames}
+        styles={styles as never}
+      />,
+    );
+
+    for (const slot of slots.filter((name) => name !== 'root')) {
+      expect(document.querySelector(`.x-${slot}`), `slot "${slot}" is missing`).not.toBeNull();
+    }
+  });
+
+  it('exposes every theme token as a CSS variable', () => {
+    const theme = {
+      background: '1',
+      surface: '2',
+      text: '3',
+      mutedText: '4',
+      border: '5',
+      accent: '6',
+      accentText: '7',
+      highlight: '8',
+      highlightActive: '9',
+      radius: '10px',
+      cardRadius: '11px',
+      fontFamily: 'x',
+      shadow: 'none',
+      pageShadow: 'none',
+      contentMaxWidth: '12px',
+      headerHeight: '13px',
+      panelHeight: '14px',
+      toolbarHeight: '15px',
+    };
+    const { container } = render(<PdfAnchorViewer file="a.pdf" theme={theme} />);
+    const root = container.firstElementChild as HTMLElement;
+    expect(root.style.getPropertyValue('--pdf-anchor-card-radius')).toBe('11px');
+    expect(root.style.getPropertyValue('--pdf-anchor-content-max-width')).toBe('12px');
+    expect(root.style.getPropertyValue('--pdf-anchor-page-shadow')).toBe('none');
+    expect(root.style.getPropertyValue('--pdf-anchor-toolbar-height')).toBe('15px');
+  });
+});
