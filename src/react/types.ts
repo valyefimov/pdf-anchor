@@ -5,6 +5,8 @@ import type { HighlightOptions, HighlightResult, PdfCitation } from '../core';
 export type PdfAnchorSlot =
   | 'root'
   | 'header'
+  | 'headerText'
+  | 'headerDivider'
   | 'headerTitle'
   | 'headerSubtitle'
   | 'headerActions'
@@ -12,18 +14,24 @@ export type PdfAnchorSlot =
   | 'documentFrame'
   | 'footer'
   | 'panel'
+  | 'panelMain'
   | 'panelHeading'
   | 'panelDescription'
   | 'panelDivider'
   | 'citation'
+  | 'citationHead'
   | 'citationTitle'
   | 'citationQuote'
   | 'citationCounter'
+  | 'citationNote'
   | 'toolbar'
+  | 'toolbarGroup'
   | 'pageLinks'
+  | 'pageLinksLabel'
   | 'pageLink'
   | 'zoom'
   | 'button'
+  | 'spinner'
   | 'status';
 
 export type PdfAnchorClassNames = Partial<Record<PdfAnchorSlot, string>>;
@@ -45,9 +53,17 @@ export interface PdfAnchorTheme {
   highlight: string;
   /** Background of the active citation's highlighted text. */
   highlightActive: string;
+  /** Corner radius of controls. */
   radius: string;
+  /** Corner radius of the floating panel and toolbar cards. */
+  cardRadius: string;
   fontFamily: string;
+  /** Shadow of the floating panel and toolbar cards. */
   shadow: string;
+  /** Shadow around the rendered PDF page. */
+  pageShadow: string;
+  /** Maximum width of the panel and toolbar. */
+  contentMaxWidth: string;
   headerHeight: string;
   panelHeight: string;
   toolbarHeight: string;
