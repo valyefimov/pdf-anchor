@@ -60,7 +60,7 @@ The default stack starts with `Inter Variable` / `Inter` and falls back to the s
 
 Every part of the UI is a named _slot_:
 
-`root`, `header`, `headerTitle`, `headerSubtitle`, `headerActions`, `viewport`, `documentFrame`, `footer`, `panel`, `panelHeading`, `panelDescription`, `panelDivider`, `citation`, `citationTitle`, `citationQuote`, `citationCounter`, `toolbar`, `pageLinks`, `pageLink`, `zoom`, `button`, `status`.
+`root`, `header`, `headerText`, `headerTitle`, `headerDivider`, `headerSubtitle`, `headerActions`, `viewport`, `documentFrame`, `footer`, `panel`, `panelMain`, `panelHeading`, `panelDescription`, `panelDivider`, `citation`, `citationHead`, `citationTitle`, `citationQuote`, `citationCounter`, `citationNote`, `toolbar`, `toolbarGroup`, `pageLinks`, `pageLinksLabel`, `pageLink`, `zoom`, `button`, `spinner`, `status`.
 
 ```tsx
 <PdfAnchorViewer
@@ -108,4 +108,4 @@ Override any built-in text, for localisation or wording:
 
 ## Layout notes
 
-The viewer fills its container's width and grows with the page. Header and footer are `position: sticky`, so give the viewer a scrolling ancestor (usually the window). To embed it in a fixed-height box, wrap it in an element with `height` and `overflow: auto`.
+The viewer fills its container's width and grows with the page. The header is a frosted sticky bar; the citation panel and toolbar are floating cards (`--pdf-anchor-card-radius`, `--pdf-anchor-shadow`) pinned to the bottom, at most `--pdf-anchor-content-max-width` wide. Header and footer are `position: sticky`, so give the viewer a scrolling ancestor (usually the window). To embed it in a fixed-height box, wrap it in an element with `height` and `overflow: auto`.
