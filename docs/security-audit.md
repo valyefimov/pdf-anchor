@@ -20,6 +20,6 @@ Checks performed before the first release.
 - Vitest 3 (dev only) pulled in vulnerable `@vitest/mocker` and `tinypool` (prototype pollution leading to RCE). Upgraded to Vitest 5.
 - `esbuild` 0.27.x (dev only) had an arbitrary file read advisory for its dev server on Windows. Pinned to `^0.28.1` with an `overrides` entry.
 
-## Known upstream issues
+## Upstream
 
-- `string-best-match@1.1.1` ships extensionless ESM imports that native Node cannot resolve. It is bundled into `dist` as a workaround. Tracked in [valyefimov/string-best-match#7](https://github.com/valyefimov/string-best-match/issues/7), together with an empty-token crash and a hash that only looks at the first character of each word.
+`string-best-match@1.1.1` shipped extensionless ESM imports that native Node could not resolve ([valyefimov/string-best-match#7](https://github.com/valyefimov/string-best-match/issues/7)). Version 1.1.2 fixes this, so it is used as a normal dependency.

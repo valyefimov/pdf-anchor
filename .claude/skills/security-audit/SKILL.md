@@ -8,7 +8,7 @@ description: Audit pdf-anchor dependencies and code for security problems. Use b
 ## Dependencies
 
 1. `npm audit` (all) and `npm audit --omit=dev` (what consumers get). Fix with `npm audit fix`; use `overrides` in `package.json` for transitive pins when a direct upgrade is not available. Repeat in `examples/react-vite`.
-2. `npm ls --all` to review the tree. The published package must have no runtime `dependencies` (only optional peers).
+2. `npm ls --all` to review the tree. The published package must have exactly one runtime dependency, `string-best-match` (exact version); everything else is an optional peer.
 3. Look for install scripts: `npm query ':attr(scripts, [postinstall])'` and `npm query ':attr(scripts, [install])'`. Review each; run `npm ci --ignore-scripts` in CI.
 4. Check the lockfile resolves only to `registry.npmjs.org` with integrity hashes.
 5. `npm view <pkg> maintainers time` for anything new or unexpected.
