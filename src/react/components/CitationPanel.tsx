@@ -42,7 +42,7 @@ export function CitationPanel({ heading, description, state, actions }: Citation
       <div {...slot('citation', 'pdf-anchor__citation')}>
         <div {...slot('citationHead', 'pdf-anchor__citation-head')}>
           {activeCitation.title && (
-            <h3 {...slot('citationTitle', 'pdf-anchor__citation-title')}>{activeCitation.title}</h3>
+            <p {...slot('citationTitle', 'pdf-anchor__citation-title')}>{activeCitation.title}</p>
           )}
           {scopeCount > 1 && (
             <div {...slot('citationCounter', 'pdf-anchor__citation-counter')} aria-live="polite">
