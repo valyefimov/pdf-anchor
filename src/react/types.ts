@@ -46,6 +46,8 @@ export interface PdfAnchorTheme {
   text: string;
   mutedText: string;
   border: string;
+  /** Border of buttons and chips. Needs 3:1 contrast against `surface` (WCAG 1.4.11). */
+  controlBorder: string;
   accent: string;
   /** Text color on top of `accent`. */
   accentText: string;
@@ -73,6 +75,10 @@ export type PdfAnchorColorScheme = 'light' | 'dark' | 'auto';
 
 /** Texts rendered by the built-in UI. Override for localisation. */
 export interface PdfAnchorLabels {
+  /** Accessible name of the whole viewer region. */
+  viewer: string;
+  /** Accessible name of the toolbar navigation. */
+  controls: string;
   citations: string;
   citationOf: (current: number, total: number) => string;
   previousCitation: string;
@@ -170,6 +176,11 @@ export interface PdfAnchorViewerProps {
 
   /** Options for the text matcher and the highlighter. */
   highlight?: HighlightOptions;
+  /**
+   * Arrow keys while focus is inside the viewer: left/right previous/next citation,
+   * up/down previous/next page, `+`/`-` zoom. Defaults to `true`.
+   */
+  keyboardNavigation?: boolean;
   /** Smooth-scroll to the active highlight. Defaults to `true`. */
   scrollToActive?: boolean;
 

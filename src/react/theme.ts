@@ -7,6 +7,7 @@ const VARIABLES: Record<keyof PdfAnchorTheme, string> = {
   text: '--pdf-anchor-text',
   mutedText: '--pdf-anchor-muted',
   border: '--pdf-anchor-border',
+  controlBorder: '--pdf-anchor-control-border',
   accent: '--pdf-anchor-accent',
   accentText: '--pdf-anchor-accent-text',
   highlight: '--pdf-anchor-highlight',

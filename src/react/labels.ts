@@ -1,6 +1,8 @@
 import type { PdfAnchorLabels } from './types';
 
 export const defaultLabels: PdfAnchorLabels = {
+  viewer: 'PDF viewer',
+  controls: 'PDF controls',
   citations: 'Citations',
   citationOf: (current, total) => `${current} of ${total}`,
   previousCitation: 'Previous citation',
