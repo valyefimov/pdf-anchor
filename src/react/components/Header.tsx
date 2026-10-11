@@ -17,7 +17,7 @@ export function Header({ title, subtitle, showRotate, actions }: HeaderProps) {
   const hasSubtitle = subtitle !== undefined && subtitle !== null && subtitle !== '';
 
   return (
-    <header {...slot('header', 'pdf-anchor__header')}>
+    <div {...slot('header', 'pdf-anchor__header')}>
       <div {...slot('headerText', 'pdf-anchor__header-text')}>
         {title !== undefined && <h1 {...slot('headerTitle', 'pdf-anchor__title')}>{title}</h1>}
         {title !== undefined && hasSubtitle && (
@@ -35,6 +35,6 @@ export function Header({ title, subtitle, showRotate, actions }: HeaderProps) {
           </IconButton>
         </div>
       )}
-    </header>
+    </div>
   );
 }
