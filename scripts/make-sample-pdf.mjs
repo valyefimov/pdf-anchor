@@ -199,20 +199,36 @@ const filler = [
 // --- tiny PDF writer -------------------------------------------------------------------
 
 const FONT = { h: ['F2', 15, 22], p: ['F1', 11, 15.5] };
-const MAX_CHARS = 92;
-const LEFT = 56;
+const PAGE_WIDTH = 612;
+const MARGIN = 56;
+const TEXT_WIDTH = PAGE_WIDTH - 2 * MARGIN; // equal left and right margins keep the block centered
+const LEFT = MARGIN;
+
+// Helvetica advance widths (1/1000 em) for printable ASCII, starting at the space character.
+const HELVETICA = [
+  278, 278, 355, 556, 556, 889, 667, 191, 333, 333, 389, 584, 278, 333, 278, 278, 556, 556, 556,
+  556, 556, 556, 556, 556, 556, 556, 278, 278, 584, 584, 584, 556, 1015, 667, 667, 722, 722, 667,
+  611, 778, 722, 278, 500, 667, 556, 833, 722, 778, 667, 778, 722, 667, 611, 722, 667, 944, 667,
+  667, 611, 278, 278, 278, 469, 556, 333, 556, 556, 500, 556, 556, 278, 556, 556, 222, 222, 500,
+  222, 833, 556, 556, 556, 556, 333, 500, 278, 556, 500, 722, 500, 500, 500, 334, 260, 334, 584,
+];
+
+const textWidth = (text, size) =>
+  text.split('').reduce((sum, char) => sum + (HELVETICA[char.charCodeAt(0) - 32] ?? 556), 0) *
+  (size / 1000);
 
 const escape = (text) => text.replace(/[\\()]/g, '\\$&');
 
-function wrap(text, max) {
+function wrap(text, maxWidth, size) {
   const lines = [];
   let line = '';
   for (const word of text.split(/\s+/)) {
-    if (line && (line + ' ' + word).length > max) {
+    const candidate = line ? `${line} ${word}` : word;
+    if (line && textWidth(candidate, size) > maxWidth) {
       lines.push(line);
       line = word;
     } else {
-      line = line ? `${line} ${word}` : word;
+      line = candidate;
     }
   }
   if (line) lines.push(line);
@@ -231,14 +247,14 @@ function layout(blocks, startY = 750, ops = []) {
       text(...FONT.h.slice(0, 2), LEFT, block.text);
       y -= FONT.h[2];
     } else if (block.type === 'p') {
-      for (const line of wrap(block.text, MAX_CHARS)) {
+      for (const line of wrap(block.text, TEXT_WIDTH, FONT.p[1])) {
         text(...FONT.p.slice(0, 2), LEFT, line);
         y -= FONT.p[2];
       }
       y -= 6;
     } else {
       for (const item of block.items) {
-        wrap(item, MAX_CHARS - 4).forEach((line, index) => {
+        wrap(item, TEXT_WIDTH - 14, FONT.p[1]).forEach((line, index) => {
           if (index === 0) text('F1', 11, LEFT, '-');
           text('F1', 11, LEFT + 14, line);
           y -= FONT.p[2];
@@ -279,7 +295,10 @@ pages.forEach((blocks, pageIndex) => {
   }
 
   ops.push(`BT /F1 9 Tf ${LEFT} 36 Td (Jane Roe - Discharge summary) Tj ET`);
-  ops.push(`BT /F1 9 Tf 480 36 Td (Page ${pageIndex + 1} of ${pages.length}) Tj ET`);
+  const pageLabel = `Page ${pageIndex + 1} of ${pages.length}`;
+  ops.push(
+    `BT /F1 9 Tf ${(PAGE_WIDTH - MARGIN - textWidth(pageLabel, 9)).toFixed(1)} 36 Td (Page ${pageIndex + 1} of ${pages.length}) Tj ET`,
+  );
   const stream = ops.join('\n');
   const content = add(`<< /Length ${Buffer.byteLength(stream)} >>\nstream\n${stream}\nendstream`);
   pageRefs.push(
