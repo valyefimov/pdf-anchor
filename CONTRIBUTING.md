@@ -24,7 +24,7 @@ Add or update tests in `tests/` for every behaviour change, and update `docs/` a
 ## Guidelines
 
 - Keep `src/core` free of React and react-pdf imports. It must stay usable on its own.
-- No runtime dependencies beyond the peer dependencies. Matching comes from `string-best-match`, which is bundled into the build.
+- No runtime dependencies beyond `string-best-match` (used for matching) and the peer dependencies.
 - Styling goes through `src/styles.css` and `--pdf-anchor-*` variables. Do not add a CSS-in-JS dependency.
 - Every new piece of UI needs a slot in `PdfAnchorSlot` so it can be restyled.
 - Write commit messages in English using Conventional Commits (`feat:`, `fix:`, `docs:`, `test:`, `chore:`).

@@ -30,7 +30,7 @@ AI answers, extracted fields and audit findings are only trustworthy if a human 
 - **A complete viewer.** Header, zoom, rotation, page paging, a citation panel with _n of N_ navigation and quick links to every page that carries a citation.
 - **Fully themeable.** CSS variables, light/dark/auto, per-element `classNames` and `styles`, translatable labels, and render props to replace whole sections.
 - **Headless when you need it.** A hook for your own UI, and a framework-agnostic core that works with any pdf.js text layer.
-- **Small and tree-shakeable.** ESM + CJS, `sideEffects` limited to CSS, no CSS-in-JS runtime, no UI library dependency. TypeScript types included.
+- **Small and tree-shakeable.** ESM-only, `sideEffects` limited to CSS, no CSS-in-JS runtime, no UI library dependency. TypeScript types included.
 
 ## Install
 

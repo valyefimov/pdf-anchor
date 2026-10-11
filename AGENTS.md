@@ -20,7 +20,7 @@ Guidance for AI coding agents (and humans) working in this repository.
 npm run typecheck   # tsc --noEmit
 npm run lint        # eslint (react-hooks rules are strict: no ref writes during render)
 npm test            # vitest run
-npm run build       # tsup -> dist (ESM + CJS + d.ts + styles.css)
+npm run build       # tsup -> dist (ESM + d.ts + styles.css)
 npm run audit:prod  # npm audit --omit=dev
 ```
 
@@ -28,9 +28,9 @@ Run typecheck, lint, test and build before finishing a change.
 
 ## Rules
 
-1. **Matching uses `string-best-match`.** Do not reimplement the matcher. The package is bundled into `dist` (`noExternal` in `tsup.config.ts`) because version 1.1.1 ships extensionless ESM imports that Node cannot resolve; vitest inlines it for the same reason. If upstream fixes this, it can become a normal dependency again.
+1. **Matching uses `string-best-match`** (a regular runtime dependency, pinned to an exact version). Do not reimplement the matcher.
 2. **Keep `src/core` free of React.** The `./core` entry must work on its own.
-3. **No runtime dependencies** besides peer dependencies. Do not add CSS-in-JS or a UI kit.
+3. **No runtime dependencies** besides `string-best-match` and the peer dependencies. Do not add CSS-in-JS or a UI kit.
 4. **Everything restyleable.** New UI gets a `PdfAnchorSlot`, uses `useSlot()`, and its colors/sizes come from `--pdf-anchor-*` variables. New tokens go into `PdfAnchorTheme`, `src/react/theme.ts`, `src/styles.css` and `docs/theming.md`.
 5. **Safe by default.** No `innerHTML`, `dangerouslySetInnerHTML`, `eval`, or building markup from citation data. Render user data as React text.
 6. **Tokens passed to `string-best-match` must be non-empty** (empty strings make it throw). `tokenize` guarantees this.
