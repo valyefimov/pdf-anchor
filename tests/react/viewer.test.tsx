@@ -169,7 +169,7 @@ describe('PdfAnchorViewer', () => {
     expect(root).toHaveAttribute('data-color-scheme', 'dark');
     expect(root.style.getPropertyValue('--pdf-anchor-accent')).toBe('#ff00aa');
     expect(document.querySelector('.pdf-anchor__panel')).toHaveClass('my-panel');
-    expect(screen.getByRole('banner')).toHaveStyle({ background: 'black' });
+    expect(document.querySelector('.pdf-anchor__header')).toHaveStyle({ background: 'black' });
     expect(screen.getByText('1/2')).toBeInTheDocument();
   });
 
@@ -200,7 +200,7 @@ describe('PdfAnchorViewer', () => {
         showToolbar={false}
       />,
     );
-    expect(screen.queryByRole('banner')).not.toBeInTheDocument();
+    expect(document.querySelector('.pdf-anchor__header')).toBeNull();
     expect(screen.queryByRole('navigation')).not.toBeInTheDocument();
     expect(within(document.body).queryByText('Condition')).not.toBeInTheDocument();
   });
