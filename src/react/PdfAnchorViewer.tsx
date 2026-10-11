@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
-import type { MouseEvent } from 'react';
+import type { CSSProperties, KeyboardEvent, MouseEvent } from 'react';
 import { Document, Page } from 'react-pdf';
 import { CitationPanel } from './components/CitationPanel';
 import { Header } from './components/Header';
@@ -23,7 +23,27 @@ function Status({ message, busy }: { message: string; busy?: boolean }) {
   );
 }
 
-function ViewerBody(props: PdfAnchorViewerProps & { context: { labels: typeof defaultLabels } }) {
+const KEY_ACTIONS = {
+  ArrowLeft: 'previousCitation',
+  ArrowRight: 'nextCitation',
+  ArrowUp: 'previousPage',
+  ArrowDown: 'nextPage',
+  '+': 'zoomIn',
+  '=': 'zoomIn',
+  '-': 'zoomOut',
+} as const;
+
+function isTypingTarget(target: EventTarget | null): boolean {
+  const element = target as HTMLElement | null;
+  return Boolean(element?.closest('input, textarea, select, [contenteditable="true"]'));
+}
+
+function ViewerBody(
+  props: PdfAnchorViewerProps & {
+    context: { labels: typeof defaultLabels };
+    rootProps: { className: string; style: CSSProperties; 'data-color-scheme': string };
+  },
+) {
   const {
     file,
     fallbackFile,
@@ -47,6 +67,8 @@ function ViewerBody(props: PdfAnchorViewerProps & { context: { labels: typeof de
     onHighlight,
     onDocumentLoad,
     onLoadError,
+    keyboardNavigation = true,
+    rootProps,
     context: { labels },
   } = props;
 
@@ -95,13 +117,39 @@ function ViewerBody(props: PdfAnchorViewerProps & { context: { labels: typeof de
     }
   };
 
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (
+      !keyboardNavigation ||
+      event.defaultPrevented ||
+      event.ctrlKey ||
+      event.metaKey ||
+      event.altKey ||
+      isTypingTarget(event.target)
+    ) {
+      return;
+    }
+
+    const action = KEY_ACTIONS[event.key as keyof typeof KEY_ACTIONS];
+    if (action) {
+      event.preventDefault();
+      actions[action]();
+    }
+  };
+
   const loading = (message: string) =>
     renderLoading ? renderLoading(message) : <Status message={message} busy />;
   const failure = (message: string) =>
     renderError ? renderError(message) : <Status message={message} />;
 
   return (
-    <>
+    <div
+      {...rootProps}
+      role="region"
+      aria-label={labels.viewer}
+      aria-keyshortcuts={keyboardNavigation ? 'ArrowLeft ArrowRight ArrowUp ArrowDown' : undefined}
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
+    >
       {showHeader &&
         (renderHeader ? (
           renderHeader(renderContext)
@@ -171,7 +219,7 @@ function ViewerBody(props: PdfAnchorViewerProps & { context: { labels: typeof de
             ))}
         </div>
       )}
-    </>
+    </div>
   );
 }
 
@@ -187,13 +235,15 @@ export function PdfAnchorViewer(props: PdfAnchorViewerProps) {
 
   return (
     <UiContext.Provider value={ui}>
-      <div
-        className={['pdf-anchor', className].filter(Boolean).join(' ')}
-        style={mergedStyle}
-        data-color-scheme={colorScheme}
-      >
-        <ViewerBody {...props} context={{ labels: mergedLabels }} />
-      </div>
+      <ViewerBody
+        {...props}
+        context={{ labels: mergedLabels }}
+        rootProps={{
+          className: ['pdf-anchor', className].filter(Boolean).join(' '),
+          style: mergedStyle,
+          'data-color-scheme': colorScheme,
+        }}
+      />
     </UiContext.Provider>
   );
 }
