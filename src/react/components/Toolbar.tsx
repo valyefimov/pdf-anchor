@@ -17,7 +17,7 @@ export function Toolbar({ state, actions, minScale, maxScale }: ToolbarProps) {
   const { page, numPages, scale, citationPages } = state;
 
   return (
-    <nav {...slot('toolbar', 'pdf-anchor__toolbar')} aria-label="PDF controls">
+    <nav {...slot('toolbar', 'pdf-anchor__toolbar')} aria-label={labels.controls}>
       <div {...slot('toolbarGroup', 'pdf-anchor__toolbar-group')}>
         {citationPages.length > 0 && (
           <div {...slot('pageLinks', 'pdf-anchor__page-links')}>
