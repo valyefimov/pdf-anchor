@@ -25,29 +25,18 @@
   "sideEffects": [
     "**/*.css"
   ],
-  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     },
     "./core": {
-      "import": {
-        "types": "./dist/core.d.ts",
-        "default": "./dist/core.js"
-      },
-      "require": {
-        "types": "./dist/core.d.cts",
-        "default": "./dist/core.cjs"
-      }
+      "types": "./dist/core.d.ts",
+      "import": "./dist/core.js",
+      "default": "./dist/core.js"
     },
     "./styles.css": "./dist/styles.css",
     "./package.json": "./package.json"
@@ -86,7 +75,6 @@
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-pdf": "^11.0.0",
-    "string-best-match": "1.1.1",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.71.2",
@@ -110,5 +98,8 @@
     "react-pdf": {
       "optional": "true"
     }
+  },
+  "dependencies": {
+    "string-best-match": "1.1.2"
   }
 }
