@@ -1,11 +1,11 @@
-import { useCitationHighlights } from '@efa/pdf-anchor';
+import { useCitationHighlights } from '@vefimov/pdf-anchor';
 import { useRef, useState } from 'react';
 import { Document, Page } from 'react-pdf';
 import { SAMPLE_PDF, citations } from '../citations';
 
 const PAGES = [1, 2, 3, 4, 5, 6];
 
-/** Bring your own UI: only the matching and highlighting come from @efa/pdf-anchor. */
+/** Bring your own UI: only the matching and highlighting come from @vefimov/pdf-anchor. */
 export function HeadlessDemo() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [page, setPage] = useState(3);

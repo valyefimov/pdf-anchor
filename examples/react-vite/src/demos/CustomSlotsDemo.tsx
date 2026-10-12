@@ -1,4 +1,4 @@
-import { PdfAnchorViewer } from '@efa/pdf-anchor';
+import { PdfAnchorViewer } from '@vefimov/pdf-anchor';
 import { SAMPLE_PDF, citations } from '../citations';
 
 /** Per-element class names and inline styles, plus render props that replace whole sections. */

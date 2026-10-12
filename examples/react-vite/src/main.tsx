@@ -1,6 +1,6 @@
 import '@fontsource-variable/inter';
-import { configurePdfWorker } from '@efa/pdf-anchor';
-import '@efa/pdf-anchor/styles.css';
+import { configurePdfWorker } from '@vefimov/pdf-anchor';
+import '@vefimov/pdf-anchor/styles.css';
 import workerSrc from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';

@@ -1,4 +1,4 @@
-import type { PdfCitation } from '@efa/pdf-anchor';
+import type { PdfCitation } from '@vefimov/pdf-anchor';
 
 export const SAMPLE_PDF = `${import.meta.env.BASE_URL}sample.pdf`;
 

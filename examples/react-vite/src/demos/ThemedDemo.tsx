@@ -1,5 +1,5 @@
-import { PdfAnchorViewer } from '@efa/pdf-anchor';
-import type { PdfCitation } from '@efa/pdf-anchor';
+import { PdfAnchorViewer } from '@vefimov/pdf-anchor';
+import type { PdfCitation } from '@vefimov/pdf-anchor';
 import { SAMPLE_PDF, citations } from '../citations';
 
 const colored: PdfCitation[] = citations.map((citation, index) => ({
