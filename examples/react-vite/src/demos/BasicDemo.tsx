@@ -1,4 +1,4 @@
-import { PdfAnchorViewer } from 'pdf-anchor';
+import { PdfAnchorViewer } from '@efa/pdf-anchor';
 import { SAMPLE_PDF, citations } from '../citations';
 
 /** Everything on defaults: pass a file and the citations. */

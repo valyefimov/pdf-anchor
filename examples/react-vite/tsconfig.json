@@ -9,7 +9,7 @@
     "skipLibCheck": true,
     "noEmit": true,
     "types": ["vite/client"],
-    "paths": { "pdf-anchor": ["../../src/index.ts"] },
+    "paths": { "@efa/pdf-anchor": ["../../src/index.ts"] },
     "baseUrl": "."
   },
   "include": ["src", "vite.config.ts"]
