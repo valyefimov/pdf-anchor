@@ -22,4 +22,4 @@ Checks performed before the first release.
 
 ## Upstream
 
-`string-best-match@1.1.1` shipped extensionless ESM imports that native Node could not resolve ([valyefimov/string-best-match#7](https://github.com/valyefimov/string-best-match/issues/7)). Version 1.1.2 fixes this, so it is used as a normal dependency.
+`string-best-match@1.1.1` shipped extensionless ESM imports that native Node could not resolve ([valyefimov/string-best-match#7](https://github.com/valyefimov/string-best-match/issues/7)). Versions 1.1.2 and 1.1.3 fix this (1.1.3 also ships a CommonJS build, [#19](https://github.com/valyefimov/string-best-match/issues/19)), so it is used as a normal dependency.

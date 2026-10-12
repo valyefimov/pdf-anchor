@@ -20,7 +20,7 @@ Guidance for AI coding agents (and humans) working in this repository.
 npm run typecheck   # tsc --noEmit
 npm run lint        # eslint (react-hooks rules are strict: no ref writes during render)
 npm test            # vitest run
-npm run build       # tsup -> dist (ESM + d.ts + styles.css)
+npm run build       # tsup -> dist (ESM + CJS + d.ts + styles.css)
 npm run audit:prod  # npm audit --omit=dev
 ```
 

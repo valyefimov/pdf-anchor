@@ -40,7 +40,7 @@ AI answers, extracted fields and audit findings are only trustworthy if a human 
 - **Keyboard and accessibility.** Arrow keys switch citations and pages, WCAG 2.2 AA tested with axe, see [Accessibility](docs/accessibility.md).
 - **Fully themeable.** CSS variables, light/dark/auto, per-element `classNames` and `styles`, translatable labels, and render props to replace whole sections.
 - **Headless when you need it.** A hook for your own UI, and a framework-agnostic core that works with any pdf.js text layer.
-- **Small and tree-shakeable.** ESM-only, `sideEffects` limited to CSS, no CSS-in-JS runtime, no UI library dependency. TypeScript types included.
+- **Small and tree-shakeable.** ESM and CJS, `sideEffects` limited to CSS, no CSS-in-JS runtime, no UI library dependency. TypeScript types included.
 
 ## Screenshots
 
