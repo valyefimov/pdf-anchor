@@ -1,12 +1,13 @@
 import type { ReactNode } from 'react';
 
+// 24x24 grid, 2px round strokes. Icons are decorative; buttons carry the accessible name.
 function Icon({ children }: { children: ReactNode }) {
   return (
     <svg
-      viewBox="0 0 16 16"
+      viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.6"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
@@ -19,50 +20,50 @@ function Icon({ children }: { children: ReactNode }) {
 
 export const ArrowUpIcon = () => (
   <Icon>
-    <path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" />
+    <path d="m6 15 6-6 6 6" />
   </Icon>
 );
 
 export const ArrowDownIcon = () => (
   <Icon>
-    <path d="M8 3v10M3.5 8.5 8 13l4.5-4.5" />
+    <path d="m6 9 6 6 6-6" />
   </Icon>
 );
 
 export const ArrowLeftIcon = () => (
   <Icon>
-    <path d="M13 8H3M7.5 3.5 3 8l4.5 4.5" />
+    <path d="m15 6-6 6 6 6" />
   </Icon>
 );
 
 export const ArrowRightIcon = () => (
   <Icon>
-    <path d="M3 8h10M8.5 3.5 13 8l-4.5 4.5" />
+    <path d="m9 6 6 6-6 6" />
   </Icon>
 );
 
 export const MinusIcon = () => (
   <Icon>
-    <path d="M3 8h10" />
+    <path d="M5 12h14" />
   </Icon>
 );
 
 export const PlusIcon = () => (
   <Icon>
-    <path d="M3 8h10M8 3v10" />
+    <path d="M12 5v14M5 12h14" />
   </Icon>
 );
 
 export const RotateLeftIcon = () => (
   <Icon>
-    <path d="M3 3v3.5h3.5" />
-    <path d="M3.4 6.5A5 5 0 1 1 3 8.5" />
+    <path d="M4 4v6h6" />
+    <path d="M5.6 15a8 8 0 1 0 1.9-8.3L4 10" />
   </Icon>
 );
 
 export const RotateRightIcon = () => (
   <Icon>
-    <path d="M13 3v3.5H9.5" />
-    <path d="M12.6 6.5A5 5 0 1 0 13 8.5" />
+    <path d="M20 4v6h-6" />
+    <path d="M18.4 15a8 8 0 1 1-1.9-8.3L20 10" />
   </Icon>
 );
