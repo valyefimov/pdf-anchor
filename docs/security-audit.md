@@ -1,4 +1,4 @@
-# Security audit: 0.1.0
+# Security audit: 1.0.0
 
 Checks performed before the first release.
 
