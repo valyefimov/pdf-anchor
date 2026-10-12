@@ -1,5 +1,5 @@
 {
-  "name": "@efa/pdf-anchor",
+  "name": "@vefimov/pdf-anchor",
   "version": "1.0.0",
   "description": "Highlight citations inside a PDF and jump between them. React viewer built on react-pdf, plus a framework-agnostic core.",
   "keywords": [
