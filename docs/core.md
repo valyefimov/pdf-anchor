@@ -1,6 +1,6 @@
 # Framework-agnostic core
 
-`pdf-anchor/core` has no React and no react-pdf dependency. It only needs a DOM that contains a rendered pdf.js text layer, so it works with plain pdf.js, Vue, Svelte, Angular or server-side tooling over jsdom.
+`@efa/pdf-anchor/core` has no React and no react-pdf dependency. It only needs a DOM that contains a rendered pdf.js text layer, so it works with plain pdf.js, Vue, Svelte, Angular or server-side tooling over jsdom.
 
 ```ts
 import {
@@ -8,7 +8,7 @@ import {
   setActiveHighlight,
   scrollToHighlight,
   clearHighlights,
-} from 'pdf-anchor/core';
+} from '@efa/pdf-anchor/core';
 ```
 
 ## Highlight a rendered page
@@ -32,7 +32,7 @@ Call `highlightCitations` again after pdf.js re-renders the text layer (zoom, ro
 Include the stylesheet so the classes have a look:
 
 ```ts
-import 'pdf-anchor/styles.css';
+import '@efa/pdf-anchor/styles.css';
 ```
 
 ## Reference

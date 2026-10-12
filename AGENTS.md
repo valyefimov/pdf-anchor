@@ -4,11 +4,11 @@ Guidance for AI coding agents (and humans) working in this repository.
 
 ## What this is
 
-`pdf-anchor` is an npm package that highlights text citations inside a PDF and lets readers jump between them.
+`@efa/pdf-anchor` (repository: pdf-anchor) is an npm package that highlights text citations inside a PDF and lets readers jump between them.
 
-- `src/core/`: framework-agnostic logic (tokenizer, matcher, DOM highlighter). **No React, no react-pdf imports.** Exposed as `pdf-anchor/core`.
+- `src/core/`: framework-agnostic logic (tokenizer, matcher, DOM highlighter). **No React, no react-pdf imports.** Exposed as `@efa/pdf-anchor/core`.
 - `src/react/`: the React layer. `PdfAnchorViewer.tsx` composes `components/` (Header, CitationPanel, Toolbar, IconButton) with the hooks in `hooks/`.
-- `src/styles.css`: the only stylesheet, driven by `--pdf-anchor-*` CSS variables. Published as `pdf-anchor/styles.css`.
+- `src/styles.css`: the only stylesheet, driven by `--pdf-anchor-*` CSS variables. Published as `@efa/pdf-anchor/styles.css`.
 - `src/index.ts`: public entry. Everything exported there is public API.
 - `tests/`: Vitest + Testing Library (jsdom). `tests/react/mockPdf.tsx` mocks `react-pdf`.
 - `examples/react-vite/`: demo app, also deployed to GitHub Pages. Imports the library from `../../src`.
@@ -44,4 +44,4 @@ Run typecheck, lint, test and build before finishing a change.
 - pdf.js re-creates the text layer on every page/zoom/rotation change; highlights must be re-applied from `onRenderTextLayerSuccess` (`useCitationHighlights` does this).
 - Highlighting is per text-layer span, not per word.
 - Inline `citations={[...]}` props are compared structurally (`useStableCitations`) to avoid effect loops when a parent re-renders from `onHighlight`.
-- The demo resolves `pdf-anchor` through a Vite alias; the root `node_modules` must be installed for `string-best-match` and `react-pdf`.
+- The demo resolves `@efa/pdf-anchor` through a Vite alias; the root `node_modules` must be installed for `string-best-match` and `react-pdf`.

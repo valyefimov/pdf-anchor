@@ -11,6 +11,7 @@
   <a href="docs/api.md">API</a> ·
   <a href="docs/theming.md">Theming</a> ·
   <a href="docs/core.md">Core (no React)</a> ·
+  <a href="docs/accessibility.md">Accessibility</a> ·
   <a href="docs/how-it-works.md">How it works</a>
 </p>
 
@@ -28,6 +29,7 @@ AI answers, extracted fields and audit findings are only trustworthy if a human 
 
 - **Matches text, not positions.** Passages are located with [`string-best-match`](https://github.com/valyefimov/string-best-match) (rolling hash + binary search), so punctuation, casing, line breaks and extra words around the quote don't break it.
 - **A complete viewer.** Header, zoom, rotation, page paging, a citation panel with _n of N_ navigation and quick links to every page that carries a citation.
+- **Keyboard and accessibility.** Arrow keys switch citations and pages, WCAG 2.2 AA tested with axe, see [Accessibility](docs/accessibility.md).
 - **Fully themeable.** CSS variables, light/dark/auto, per-element `classNames` and `styles`, translatable labels, and render props to replace whole sections.
 - **Headless when you need it.** A hook for your own UI, and a framework-agnostic core that works with any pdf.js text layer.
 - **Small and tree-shakeable.** ESM-only, `sideEffects` limited to CSS, no CSS-in-JS runtime, no UI library dependency. TypeScript types included.
@@ -35,16 +37,16 @@ AI answers, extracted fields and audit findings are only trustworthy if a human 
 ## Install
 
 ```bash
-npm install pdf-anchor react react-dom react-pdf pdfjs-dist
+npm install @efa/pdf-anchor react react-dom react-pdf pdfjs-dist
 ```
 
-`react`, `react-dom` and `react-pdf` are peer dependencies (`react` 18 or 19, `react-pdf` 11). They are optional if you only use [`pdf-anchor/core`](docs/core.md). Install the `pdfjs-dist` version that your `react-pdf` release depends on.
+`react`, `react-dom` and `react-pdf` are peer dependencies (`react` 18 or 19, `react-pdf` 11). They are optional if you only use [`@efa/pdf-anchor/core`](docs/core.md). Install the `pdfjs-dist` version that your `react-pdf` release depends on.
 
 ## Quick start
 
 ```tsx
-import { PdfAnchorViewer, configurePdfWorker } from 'pdf-anchor';
-import 'pdf-anchor/styles.css';
+import { PdfAnchorViewer, configurePdfWorker } from '@efa/pdf-anchor';
+import '@efa/pdf-anchor/styles.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 import workerSrc from 'pdfjs-dist/build/pdf.worker.min.mjs?url'; // Vite; see below for other bundlers
 
@@ -136,8 +138,8 @@ const { results, notifyTextLayerRendered } = useCitationHighlights({
 ## Without React
 
 ```ts
-import { highlightCitations, setActiveHighlight, scrollToHighlight } from 'pdf-anchor/core';
-import 'pdf-anchor/styles.css';
+import { highlightCitations, setActiveHighlight, scrollToHighlight } from '@efa/pdf-anchor/core';
+import '@efa/pdf-anchor/styles.css';
 
 const results = highlightCitations(container, [{ page: 1, text: 'total amount due' }]);
 scrollToHighlight(setActiveHighlight(container, 0));
