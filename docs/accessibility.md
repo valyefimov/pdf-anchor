@@ -1,6 +1,6 @@
 # Accessibility
 
-`@efa/pdf-anchor` targets **WCAG 2.2 level AA**.
+`@vefimov/pdf-anchor` targets **WCAG 2.2 level AA**.
 
 ## Keyboard
 

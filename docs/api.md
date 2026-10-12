@@ -1,8 +1,8 @@
 # API reference
 
 ```ts
-import { PdfAnchorViewer, configurePdfWorker, useCitationHighlights } from '@efa/pdf-anchor';
-import '@efa/pdf-anchor/styles.css';
+import { PdfAnchorViewer, configurePdfWorker, useCitationHighlights } from '@vefimov/pdf-anchor';
+import '@vefimov/pdf-anchor/styles.css';
 ```
 
 ## `configurePdfWorker(workerSrc)`
@@ -118,7 +118,7 @@ const { results, notifyTextLayerRendered } = useCitationHighlights({
 
 ## Other exports
 
-`defaultLabels`, `themeToStyle`, and everything from [`@efa/pdf-anchor/core`](core.md). All types are exported.
+`defaultLabels`, `themeToStyle`, and everything from [`@vefimov/pdf-anchor/core`](core.md). All types are exported.
 
 ## Next.js and other SSR frameworks
 

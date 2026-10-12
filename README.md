@@ -1,4 +1,4 @@
-<h1 align="center">@efa/pdf-anchor</h1>
+<h1 align="center">@vefimov/pdf-anchor</h1>
 
 <p align="center">
   <b>Show people exactly where an answer came from.</b><br />
@@ -22,7 +22,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/media/basic.png" alt="@efa/pdf-anchor highlighting two citations in a discharge summary, with the citation panel and toolbar below" width="820" />
+  <img src="docs/media/basic.png" alt="@vefimov/pdf-anchor highlighting two citations in a discharge summary, with the citation panel and toolbar below" width="820" />
 </p>
 
 <p align="center">
@@ -33,7 +33,7 @@
 
 ## Why
 
-AI answers, extracted fields and audit findings are only trustworthy if a human can check them against the source. `@efa/pdf-anchor` turns _"the document says X"_ into _"here, on page 7, highlighted"_, without coordinates, bounding boxes or OCR output from your backend. You send text; it finds the place.
+AI answers, extracted fields and audit findings are only trustworthy if a human can check them against the source. `@vefimov/pdf-anchor` turns _"the document says X"_ into _"here, on page 7, highlighted"_, without coordinates, bounding boxes or OCR output from your backend. You send text; it finds the place.
 
 - **Matches text, not positions.** Passages are located with [`string-best-match`](https://github.com/valyefimov/string-best-match) (rolling hash + binary search), so punctuation, casing, line breaks and extra words around the quote don't break it.
 - **A complete viewer.** Header, zoom, rotation, page paging, a citation panel with _n of N_ navigation and quick links to every page that carries a citation.
@@ -57,16 +57,16 @@ The images and the video are generated from the demo app with `node scripts/reco
 ## Install
 
 ```bash
-npm install @efa/pdf-anchor react react-dom react-pdf pdfjs-dist
+npm install @vefimov/pdf-anchor react react-dom react-pdf pdfjs-dist
 ```
 
-`react`, `react-dom` and `react-pdf` are peer dependencies (`react` 18 or 19, `react-pdf` 11). They are optional if you only use [`@efa/pdf-anchor/core`](docs/core.md). Install the `pdfjs-dist` version that your `react-pdf` release depends on.
+`react`, `react-dom` and `react-pdf` are peer dependencies (`react` 18 or 19, `react-pdf` 11). They are optional if you only use [`@vefimov/pdf-anchor/core`](docs/core.md). Install the `pdfjs-dist` version that your `react-pdf` release depends on.
 
 ## Quick start
 
 ```tsx
-import { PdfAnchorViewer, configurePdfWorker } from '@efa/pdf-anchor';
-import '@efa/pdf-anchor/styles.css';
+import { PdfAnchorViewer, configurePdfWorker } from '@vefimov/pdf-anchor';
+import '@vefimov/pdf-anchor/styles.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 import workerSrc from 'pdfjs-dist/build/pdf.worker.min.mjs?url'; // Vite; see below for other bundlers
 
@@ -158,8 +158,12 @@ const { results, notifyTextLayerRendered } = useCitationHighlights({
 ## Without React
 
 ```ts
-import { highlightCitations, setActiveHighlight, scrollToHighlight } from '@efa/pdf-anchor/core';
-import '@efa/pdf-anchor/styles.css';
+import {
+  highlightCitations,
+  setActiveHighlight,
+  scrollToHighlight,
+} from '@vefimov/pdf-anchor/core';
+import '@vefimov/pdf-anchor/styles.css';
 
 const results = highlightCitations(container, [{ page: 1, text: 'total amount due' }]);
 scrollToHighlight(setActiveHighlight(container, 0));
@@ -169,7 +173,7 @@ The core only needs a DOM with a rendered pdf.js text layer. See [Core](docs/cor
 
 ## How it works
 
-pdf.js renders each page's text as DOM spans. `@efa/pdf-anchor` flattens them into one word list, finds the longest run of words shared with your quote using `string-best-match`, and marks the spans that own those words. The details, thresholds (`minMatchWords`, `minMatchRatio`) and limits are in [How it works](docs/how-it-works.md).
+pdf.js renders each page's text as DOM spans. `@vefimov/pdf-anchor` flattens them into one word list, finds the longest run of words shared with your quote using `string-best-match`, and marks the spans that own those words. The details, thresholds (`minMatchWords`, `minMatchRatio`) and limits are in [How it works](docs/how-it-works.md).
 
 Good to know: highlighting is per text-layer span, and the PDF must have a text layer (scanned images need OCR first).
 
