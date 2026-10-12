@@ -16,7 +16,7 @@ const demos = {
 type DemoName = keyof typeof demos;
 
 export function App() {
-  const [active, setActive] = useState<DemoName>('Basic');
+  const [active, setActive] = useState<DemoName>('Docs');
   const Demo = demos[active];
 
   return (
