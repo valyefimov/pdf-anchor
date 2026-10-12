@@ -1,5 +1,5 @@
 {
-  "name": "pdf-anchor",
+  "name": "@efa/pdf-anchor",
   "version": "0.1.0",
   "description": "Highlight citations inside a PDF and jump between them. React viewer built on react-pdf, plus a framework-agnostic core.",
   "keywords": [
@@ -102,5 +102,8 @@
   },
   "dependencies": {
     "string-best-match": "1.1.2"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
