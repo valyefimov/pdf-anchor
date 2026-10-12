@@ -1,9 +1,11 @@
-import { useCitationHighlights } from 'pdf-anchor';
+import { useCitationHighlights } from '@efa/pdf-anchor';
 import { useRef, useState } from 'react';
 import { Document, Page } from 'react-pdf';
 import { SAMPLE_PDF, citations } from '../citations';
 
-/** Bring your own UI: only the matching/highlighting is taken from pdf-anchor. */
+const PAGES = [1, 2, 3, 4, 5, 6];
+
+/** Bring your own UI: only the matching and highlighting come from pdf-anchor. */
 export function HeadlessDemo() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [page, setPage] = useState(3);
@@ -17,32 +19,62 @@ export function HeadlessDemo() {
   });
 
   return (
-    <div style={{ padding: 16, fontFamily: 'system-ui' }}>
-      <p>
-        {[1, 2, 3, 4, 5, 6].map((n) => (
-          <button
-            key={n}
-            type="button"
-            onClick={() => {
-              setPage(n);
-              setActive(0);
-            }}
-          >
-            page {n}
-          </button>
-        ))}
-      </p>
-      <ul>
-        {pageCitations.map((citation, index) => (
-          <li key={citation.id}>
-            <button type="button" onClick={() => setActive(index)}>
-              {citation.title}
-            </button>{' '}
-            {results[index] ? (results[index].found ? '✅ found' : '❌ not found') : ''}
-          </li>
-        ))}
-      </ul>
-      <div ref={containerRef}>
+    <div className="demo-headless">
+      <aside className="demo-side">
+        <section>
+          <h2>Page</h2>
+          <div className="demo-chips">
+            {PAGES.map((number) => (
+              <button
+                key={number}
+                type="button"
+                className="demo-chip"
+                aria-pressed={number === page}
+                onClick={() => {
+                  setPage(number);
+                  setActive(0);
+                }}
+              >
+                {number}
+              </button>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2>Citations on this page</h2>
+          {pageCitations.length === 0 ? (
+            <p>No citations on this page.</p>
+          ) : (
+            <ul className="demo-list">
+              {pageCitations.map((citation, index) => {
+                const found = results[index]?.found;
+                return (
+                  <li key={citation.id}>
+                    <button
+                      type="button"
+                      className="demo-item"
+                      aria-pressed={index === active}
+                      onClick={() => setActive(index)}
+                    >
+                      <span>{citation.title}</span>
+                      {found !== undefined && (
+                        <span
+                          className={`demo-badge ${found ? 'demo-badge--ok' : 'demo-badge--missing'}`}
+                        >
+                          {found ? 'found' : 'not found'}
+                        </span>
+                      )}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </section>
+      </aside>
+
+      <div ref={containerRef} className="demo-page">
         <Document file={SAMPLE_PDF}>
           <Page
             pageNumber={page}
