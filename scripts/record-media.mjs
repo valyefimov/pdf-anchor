@@ -240,9 +240,9 @@ const inputs = [];
 const filters = [];
 cues.forEach((cue, i) => {
   inputs.push('-i', audio[cue.key].file);
-  filters.push(`[${i + 1}:a]adelay=${cue.at}|${cue.at},volume=1.6[a${i}]`);
+  filters.push(`[${i + 1}:a]adelay=${cue.at}|${cue.at},volume=1.3[a${i}]`);
 });
-const mix = `${filters.join(';')};${cues.map((_, i) => `[a${i}]`).join('')}amix=inputs=${cues.length}:normalize=0,apad[aout]`;
+const mix = `${filters.join(';')};${cues.map((_, i) => `[a${i}]`).join('')}amix=inputs=${cues.length}:normalize=0,alimiter=limit=0.9,apad[aout]`;
 execFileSync('ffmpeg', [
   '-y',
   '-loglevel',
