@@ -4,6 +4,8 @@ Thanks for your interest in pdf-anchor.
 
 ## Setup
 
+Development needs Node 22.22+ or 24+ (Vitest and jsdom require it). The published package itself runs on Node 18+.
+
 ```bash
 git clone https://github.com/valyefimov/pdf-anchor
 cd pdf-anchor
