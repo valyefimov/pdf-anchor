@@ -21,7 +21,7 @@ npm test
 npm run build
 ```
 
-Add or update tests in `tests/` for every behaviour change, and update `docs/` and `CHANGELOG.md` when the public API changes.
+Add or update tests in `tests/` for every behaviour change, and update `docs/` and the README when the public API changes.
 
 ## Guidelines
 

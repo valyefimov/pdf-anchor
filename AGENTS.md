@@ -35,7 +35,7 @@ Run typecheck, lint, test and build before finishing a change.
 5. **Safe by default.** No `innerHTML`, `dangerouslySetInnerHTML`, `eval`, or building markup from citation data. Render user data as React text.
 6. **Tokens passed to `string-best-match` must be non-empty** (empty strings make it throw). `tokenize` guarantees this.
 7. **Tests with every behaviour change.** Core logic gets pure tests; React behaviour is tested against the mocked `react-pdf`. Verify real pdf.js behaviour with the demo app.
-8. **Docs and changelog.** Public API changes update `docs/`, the README and `CHANGELOG.md`.
+8. **Docs.** Public API changes update `docs/` and the README.
 9. **English only** in code, comments, docs, demo data and commit messages.
 10. **Commits:** Conventional Commits (`feat:`, `fix:`, `docs:`, `test:`, `chore:`, `ci:`, `refactor:`, `style:`), small and focused. Do not add `Co-Authored-By` trailers.
 

@@ -18,7 +18,7 @@ description: Work on the pdf-anchor library: architecture, conventions, how to c
 3. Add or update tests in `tests/core` or `tests/react`.
 4. Run `npm run typecheck && npm run lint && npm test && npm run build`.
 5. For anything that touches pdf.js behaviour (text layer, highlighting, scrolling) verify it in the demo: `npm --prefix examples/react-vite run dev`, open the Basic tab, and check highlights, prev/next, page links, zoom.
-6. Update `docs/`, README and `CHANGELOG.md` for public API changes.
+6. Update `docs/` and the README for public API changes.
 
 ## Pitfalls
 
