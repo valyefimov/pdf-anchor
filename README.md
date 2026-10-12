@@ -21,6 +21,14 @@
   <img alt="types" src="https://img.shields.io/badge/types-included-3178c6" />
 </p>
 
+<p align="center">
+  <img src="docs/media/basic.png" alt="pdf-anchor highlighting two citations in a discharge summary, with the citation panel and toolbar below" width="820" />
+</p>
+
+<p align="center">
+  <a href="docs/media/demo.mp4"><b>Watch the 50-second walkthrough</b></a>
+</p>
+
 ---
 
 ## Why
@@ -33,6 +41,18 @@ AI answers, extracted fields and audit findings are only trustworthy if a human 
 - **Fully themeable.** CSS variables, light/dark/auto, per-element `classNames` and `styles`, translatable labels, and render props to replace whole sections.
 - **Headless when you need it.** A hook for your own UI, and a framework-agnostic core that works with any pdf.js text layer.
 - **Small and tree-shakeable.** ESM-only, `sideEffects` limited to CSS, no CSS-in-JS runtime, no UI library dependency. TypeScript types included.
+
+## Screenshots
+
+| Dark scheme, per-citation colors, custom labels   | Custom slots and render props                       |
+| ------------------------------------------------- | --------------------------------------------------- |
+| ![Themed dark viewer](docs/media/themed-dark.png) | ![Custom slots viewer](docs/media/custom-slots.png) |
+
+| Headless hook with your own UI            | On a phone                              |
+| ----------------------------------------- | --------------------------------------- |
+| ![Headless demo](docs/media/headless.png) | ![Mobile layout](docs/media/mobile.png) |
+
+The images and the video are generated from the demo app with `node scripts/record-media.mjs`.
 
 ## Install
 
