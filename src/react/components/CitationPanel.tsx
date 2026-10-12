@@ -23,22 +23,32 @@ export function CitationPanel({ heading, description, state, actions }: Citation
   const quote =
     activeCitation.quote ??
     (Array.isArray(activeCitation.text) ? activeCitation.text.join('\n\n') : activeCitation.text);
-  const panel = slot('panel', 'pdf-anchor__panel');
+  const solo = heading === undefined && description === undefined;
+  const panel = slot(
+    'panel',
+    solo ? 'pdf-anchor__panel pdf-anchor__panel--solo' : 'pdf-anchor__panel',
+  );
   const citationColor = activeCitation.color
     ? ({ '--pdf-anchor-citation-color': activeCitation.color } as CSSProperties)
     : undefined;
 
   return (
     <section className={panel.className} style={{ ...citationColor, ...panel.style }}>
-      <div {...slot('panelMain', 'pdf-anchor__panel-main')}>
-        {heading !== undefined && (
-          <h2 {...slot('panelHeading', 'pdf-anchor__panel-heading')}>{heading}</h2>
-        )}
-        {description !== undefined && (
-          <div {...slot('panelDescription', 'pdf-anchor__panel-description')}>{description}</div>
-        )}
-      </div>
-      <div {...slot('panelDivider', 'pdf-anchor__panel-divider')} />
+      {!solo && (
+        <>
+          <div {...slot('panelMain', 'pdf-anchor__panel-main')}>
+            {heading !== undefined && (
+              <h2 {...slot('panelHeading', 'pdf-anchor__panel-heading')}>{heading}</h2>
+            )}
+            {description !== undefined && (
+              <div {...slot('panelDescription', 'pdf-anchor__panel-description')}>
+                {description}
+              </div>
+            )}
+          </div>
+          <div {...slot('panelDivider', 'pdf-anchor__panel-divider')} />
+        </>
+      )}
       <div {...slot('citation', 'pdf-anchor__citation')}>
         <div {...slot('citationHead', 'pdf-anchor__citation-head')}>
           {activeCitation.title && (
