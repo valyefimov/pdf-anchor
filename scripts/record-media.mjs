@@ -83,7 +83,7 @@ const lines = {
   headless:
     'Prefer your own interface? The headless hook does the matching and highlighting, and you bring the UI.',
   docs: 'Documentation, an API reference and live examples are all included.',
-  outro: 'Install it from npm. At E F A, slash pdf anchor.',
+  outro: 'Install it from npm. At vefimov, slash pdf anchor.',
 };
 const audio = {};
 for (const [key, text] of Object.entries(lines)) {
@@ -157,7 +157,7 @@ const card = (title, sub, code) =>
     <div style="margin-top:16px;font-size:26px;color:#cbd5e1;max-width:900px">${sub}</div>
     ${code ? `<div style="margin-top:36px;display:inline-block;padding:14px 22px;border-radius:12px;background:#0b1020;font:20px ui-monospace,Menlo,monospace;color:#e2e8f0">${code}</div>` : ''}</div></body>`);
 
-await card('@efa/pdf-anchor', 'Show people exactly where an answer came from.');
+await card('@vefimov/pdf-anchor', 'Show people exactly where an answer came from.');
 await speak('intro', false);
 
 await page.goto(DEMO_URL);
@@ -221,7 +221,7 @@ await done;
 
 await caption('');
 await card(
-  'npm install @efa/pdf-anchor',
+  'npm install @vefimov/pdf-anchor',
   'React viewer, framework-agnostic core, WCAG 2.2 AA, matching by string-best-match',
   'github.com/valyefimov/pdf-anchor',
 );
