@@ -20,33 +20,23 @@ export function App() {
   const Demo = demos[active];
 
   return (
-    <div style={{ display: 'grid', gridTemplateRows: 'auto 1fr', minHeight: '100%' }}>
-      <nav
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 6,
-          padding: '8px 16px',
-          background: 'linear-gradient(90deg, #0f172a, #1e1b4b)',
-        }}
-      >
-        <strong style={{ marginRight: 12, color: 'white', letterSpacing: '-0.01em' }}>
-          pdf-anchor
-        </strong>
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateRows: 'auto 1fr',
+        gridTemplateColumns: 'minmax(0, 1fr)',
+        minHeight: '100%',
+      }}
+    >
+      <nav className="demo-nav" aria-label="Demos">
+        <strong className="demo-brand">pdf-anchor</strong>
         {(Object.keys(demos) as DemoName[]).map((name) => (
           <button
             key={name}
             type="button"
+            className="demo-tab"
             onClick={() => setActive(name)}
             aria-pressed={name === active}
-            style={{
-              padding: '6px 12px',
-              border: 0,
-              borderRadius: 999,
-              color: 'white',
-              cursor: 'pointer',
-              background: name === active ? '#2563eb' : 'rgba(255, 255, 255, 0.1)',
-            }}
           >
             {name}
           </button>
