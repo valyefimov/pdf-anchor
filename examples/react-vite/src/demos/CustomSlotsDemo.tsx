@@ -1,30 +1,30 @@
-import { PdfAnchorViewer } from 'pdf-anchor';
+import { PdfAnchorViewer } from '@efa/pdf-anchor';
 import { SAMPLE_PDF, citations } from '../citations';
 
-/** Per-element class names / inline styles, plus render props that replace whole sections. */
+/** Per-element class names and inline styles, plus render props that replace whole sections. */
 export function CustomSlotsDemo() {
   return (
     <PdfAnchorViewer
       file={SAMPLE_PDF}
       citations={citations}
-      title="Custom slots"
-      classNames={{ panel: 'demo-panel' }}
+      className="demo-custom"
+      title="Discharge summary"
+      subtitle="Custom slots"
       styles={{
-        header: { background: '#fef3c7' },
         citationQuote: { fontStyle: 'italic' },
         button: { borderRadius: 999 },
       }}
       renderToolbar={({ state, actions }) => (
-        <div style={{ display: 'flex', gap: 8, padding: 12, justifyContent: 'center' }}>
+        <div className="demo-toolbar">
           <button type="button" onClick={actions.previousCitation}>
-            ◀
+            Previous
           </button>
-          <strong>
-            page {state.page} / {state.numPages || '…'} · citation {state.activePosition} of{' '}
+          <span>
+            Page {state.page} of {state.numPages || '…'} · citation {state.activePosition} of{' '}
             {state.scopeCount}
-          </strong>
+          </span>
           <button type="button" onClick={actions.nextCitation}>
-            ▶
+            Next
           </button>
         </div>
       )}

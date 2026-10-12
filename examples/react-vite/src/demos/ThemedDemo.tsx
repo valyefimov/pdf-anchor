@@ -1,5 +1,5 @@
-import { PdfAnchorViewer } from 'pdf-anchor';
-import type { PdfCitation } from 'pdf-anchor';
+import { PdfAnchorViewer } from '@efa/pdf-anchor';
+import type { PdfCitation } from '@efa/pdf-anchor';
 import { SAMPLE_PDF, citations } from '../citations';
 
 const colored: PdfCitation[] = citations.map((citation, index) => ({
@@ -22,7 +22,6 @@ export function ThemedDemo() {
       theme={{
         accent: '#38bdf8',
         radius: '12px',
-        fontFamily: "Georgia, 'Times New Roman', serif",
         highlight: 'rgba(56, 189, 248, 0.35)',
         highlightActive: 'rgba(56, 189, 248, 0.6)',
       }}
