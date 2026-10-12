@@ -10,7 +10,7 @@
   --pdf-anchor-text: #1a1d21;
   --pdf-anchor-muted: #5f6b7a;
   --pdf-anchor-border: #e2e5ea;
-  --pdf-anchor-control-border: #7b8696;
+  --pdf-anchor-control-border: transparent;
   --pdf-anchor-accent: #2563eb;
   --pdf-anchor-accent-text: #ffffff;
   --pdf-anchor-highlight: rgba(255, 221, 0, 0.45);
@@ -56,7 +56,6 @@
   --pdf-anchor-text: #e8ebef;
   --pdf-anchor-muted: #9aa5b3;
   --pdf-anchor-border: #2b323b;
-  --pdf-anchor-control-border: #7f8a99;
   --pdf-anchor-accent: #60a5fa;
   --pdf-anchor-accent-text: #0b1220;
   --pdf-anchor-highlight: rgba(250, 204, 21, 0.4);
@@ -71,7 +70,6 @@
     --pdf-anchor-text: #e8ebef;
     --pdf-anchor-muted: #9aa5b3;
     --pdf-anchor-border: #2b323b;
-    --pdf-anchor-control-border: #7f8a99;
     --pdf-anchor-accent: #60a5fa;
     --pdf-anchor-accent-text: #0b1220;
     --pdf-anchor-highlight: rgba(250, 204, 21, 0.4);
@@ -271,6 +269,7 @@
 /* Footer: floating citation panel and toolbar ------------------------------- */
 
 .pdf-anchor__footer {
+  container-type: inline-size;
   position: sticky;
   bottom: 0;
   z-index: 5;
@@ -304,6 +303,15 @@
   max-height: var(--pdf-anchor-panel-height);
   padding: 20px 24px;
   overflow: hidden;
+}
+
+/* Without a heading or description the citation takes the whole card. */
+.pdf-anchor__panel--solo {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pdf-anchor__panel--solo .pdf-anchor__citation {
+  padding-left: 0;
 }
 
 .pdf-anchor__panel-main {
@@ -393,15 +401,16 @@
 .pdf-anchor__citation-counter .pdf-anchor__button {
   width: 28px;
   height: 28px;
-  border-color: transparent;
   border-radius: 50%;
+  background: var(--pdf-anchor-surface);
 }
 
 .pdf-anchor__citation-quote {
   margin: 0;
-  max-height: 7.5em;
+  max-height: 8em;
   overflow: auto;
-  font-size: 0.9375rem;
+  font-size: 1rem;
+  line-height: 1.55;
   overflow-wrap: anywhere;
   white-space: pre-wrap;
 }
@@ -463,26 +472,26 @@
 }
 
 .pdf-anchor__page-link {
-  min-width: 28px;
+  min-width: 30px;
   padding: 3px 10px;
   border: 1px solid var(--pdf-anchor-control-border);
   border-radius: 999px;
-  background: transparent;
+  background: var(--pdf-anchor-bg);
   color: inherit;
   font: inherit;
   font-variant-numeric: tabular-nums;
+  font-weight: 500;
   cursor: pointer;
   transition:
     background-color 0.12s ease-out,
-    border-color 0.12s ease-out;
+    color 0.12s ease-out;
 }
 
 .pdf-anchor__page-link:hover {
-  border-color: var(--pdf-anchor-accent);
+  background: color-mix(in srgb, var(--pdf-anchor-accent) 14%, var(--pdf-anchor-bg));
 }
 
 .pdf-anchor__page-link[aria-current='page'] {
-  border-color: var(--pdf-anchor-accent);
   background: var(--pdf-anchor-accent);
   color: var(--pdf-anchor-accent-text);
   font-weight: 650;
@@ -509,18 +518,18 @@
   padding: 0;
   border: 1px solid var(--pdf-anchor-control-border);
   border-radius: var(--pdf-anchor-radius);
-  background: var(--pdf-anchor-surface);
+  background: var(--pdf-anchor-bg);
   color: inherit;
   cursor: pointer;
   transition:
     background-color 0.12s ease-out,
-    border-color 0.12s ease-out,
+    color 0.12s ease-out,
     transform 0.12s ease-out;
 }
 
 .pdf-anchor__button:hover:not(:disabled) {
-  border-color: var(--pdf-anchor-accent);
-  background: var(--pdf-anchor-bg);
+  background: color-mix(in srgb, var(--pdf-anchor-accent) 14%, var(--pdf-anchor-bg));
+  color: var(--pdf-anchor-accent);
 }
 
 .pdf-anchor__button:active:not(:disabled) {
@@ -539,8 +548,20 @@
 }
 
 .pdf-anchor__button svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Narrow footer: page links get their own row so chips never wrap beside the controls. */
+@container (max-width: 760px) {
+  .pdf-anchor__toolbar {
+    grid-template-columns: auto 1fr;
+    row-gap: 8px;
+  }
+
+  .pdf-anchor__toolbar > :first-child {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 720px) {
