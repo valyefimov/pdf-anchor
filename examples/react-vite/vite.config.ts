@@ -13,7 +13,7 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: '@efa/pdf-anchor/styles.css', replacement: root('../../src/styles.css') },
-      { find: /^pdf-anchor$/, replacement: root('../../src/index.ts') },
+      { find: /^@efa\/pdf-anchor$/, replacement: root('../../src/index.ts') },
     ],
     dedupe: ['react', 'react-dom', 'react-pdf'],
   },
