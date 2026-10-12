@@ -46,7 +46,7 @@ export function DocsDemo() {
   return (
     <main className="demo-docs">
       <header className="demo-hero">
-        <h1>pdf-anchor</h1>
+        <h1>@efa/pdf-anchor</h1>
         <p>
           Show people exactly where an answer came from. Pass a PDF and a list of quotes: the viewer
           finds each quote in the page text, highlights it, and lets readers step from citation to

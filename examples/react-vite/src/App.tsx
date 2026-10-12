@@ -29,7 +29,7 @@ export function App() {
       }}
     >
       <nav className="demo-nav" aria-label="Demos">
-        <strong className="demo-brand">pdf-anchor</strong>
+        <strong className="demo-brand">@efa/pdf-anchor</strong>
         {(Object.keys(demos) as DemoName[]).map((name) => (
           <button
             key={name}
