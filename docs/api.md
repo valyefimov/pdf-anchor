@@ -1,8 +1,8 @@
 # API reference
 
 ```ts
-import { PdfAnchorViewer, configurePdfWorker, useCitationHighlights } from 'pdf-anchor';
-import 'pdf-anchor/styles.css';
+import { PdfAnchorViewer, configurePdfWorker, useCitationHighlights } from '@efa/pdf-anchor';
+import '@efa/pdf-anchor/styles.css';
 ```
 
 ## `configurePdfWorker(workerSrc)`
@@ -52,6 +52,7 @@ You also need react-pdf's text layer styles: `import 'react-pdf/dist/Page/TextLa
 | `initialRotation`                   | `0`                             | Degrees clockwise (multiple of 90).                                                                             |
 | `highlight`                         |                                 | Matcher and highlighter options, see [core](core.md).                                                           |
 | `scrollToActive`                    | `true`                          | Scroll the active highlight into view.                                                                          |
+| `keyboardNavigation`                | `true`                          | Arrow keys and `+`/`-` while focus is inside the viewer, see [accessibility](accessibility.md).                 |
 
 ### Appearance
 
@@ -83,6 +84,7 @@ You also need react-pdf's text layer styles: `import 'react-pdf/dist/Page/TextLa
 
 ### Interaction
 
+- Keyboard: left/right arrows switch citations, up/down arrows switch pages, `+`/`-` zoom.
 - Click a highlighted fragment to activate its citation.
 - Prev/next in the panel move between citations; the page links in the toolbar jump to a citation page.
 
@@ -116,7 +118,7 @@ const { results, notifyTextLayerRendered } = useCitationHighlights({
 
 ## Other exports
 
-`defaultLabels`, `themeToStyle`, and everything from [`pdf-anchor/core`](core.md). All types are exported.
+`defaultLabels`, `themeToStyle`, and everything from [`@efa/pdf-anchor/core`](core.md). All types are exported.
 
 ## Next.js and other SSR frameworks
 

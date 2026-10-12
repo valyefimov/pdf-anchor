@@ -16,19 +16,19 @@ Shortcuts are ignored when a modifier key is held or the focus is in an input, t
 
 ## What is covered
 
-| Criterion                              | How                                                                                                                     |
-| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| 1.1.1 Non-text content                 | Icons are decorative (`aria-hidden`); every icon button has an accessible name from `labels`.                           |
-| 1.3.1 Info and relationships           | Real `button`, `nav`, `section`, headings; the current page link has `aria-current="page"`. No nested banner landmarks. |
-| 1.4.3 Contrast (minimum)               | Default light and dark palettes pass; verified with axe in a real browser.                                              |
-| 1.4.11 Non-text contrast               | Button and chip borders use `--pdf-anchor-control-border` (at least 3:1 against the surface).                           |
-| 1.4.1 Use of color                     | The active citation has an outline in addition to its color; the panel names the citation.                              |
-| 2.1.1 Keyboard, 2.1.2 No keyboard trap | See above. Highlighted text can be activated by click, and the same navigation exists on buttons.                       |
-| 2.4.7 Focus visible                    | 2px accent outline on buttons, links and the viewer region.                                                             |
-| 2.5.8 Target size                      | Controls are at least 28 x 28 CSS px.                                                                                   |
-| 4.1.2 Name, role, value                | Zoom, counter and "not found" notes are live regions; labels are overridable for localisation.                          |
-| 4.1.3 Status messages                  | Loading is `role="status"`, errors are `role="alert"`.                                                                  |
-| Reduced motion                         | The spinner slows down and the highlight pulse and transitions are disabled under `prefers-reduced-motion`.             |
+| Criterion                              | How                                                                                                                               |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| 1.1.1 Non-text content                 | Icons are decorative (`aria-hidden`); every icon button has an accessible name from `labels`.                                     |
+| 1.3.1 Info and relationships           | Real `button`, `nav`, `section`, headings; the current page link has `aria-current="page"`. No nested banner landmarks.           |
+| 1.4.3 Contrast (minimum)               | Default light and dark palettes pass; verified with axe in a real browser.                                                        |
+| 1.4.11 Non-text contrast               | Controls are identified by their icon or text (at least 4.5:1). If you set `--pdf-anchor-control-border`, keep it at 3:1 or more. |
+| 1.4.1 Use of color                     | The active citation has an outline in addition to its color; the panel names the citation.                                        |
+| 2.1.1 Keyboard, 2.1.2 No keyboard trap | See above. Highlighted text can be activated by click, and the same navigation exists on buttons.                                 |
+| 2.4.7 Focus visible                    | 2px accent outline on buttons, links and the viewer region.                                                                       |
+| 2.5.8 Target size                      | Controls are at least 28 x 28 CSS px.                                                                                             |
+| 4.1.2 Name, role, value                | Zoom, counter and "not found" notes are live regions; labels are overridable for localisation.                                    |
+| 4.1.3 Status messages                  | Loading is `role="status"`, errors are `role="alert"`.                                                                            |
+| Reduced motion                         | The spinner slows down and the highlight pulse and transitions are disabled under `prefers-reduced-motion`.                       |
 
 ## Your responsibilities
 
