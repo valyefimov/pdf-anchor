@@ -1,4 +1,4 @@
-<h1 align="center">pdf-anchor</h1>
+<h1 align="center">@efa/pdf-anchor</h1>
 
 <p align="center">
   <b>Show people exactly where an answer came from.</b><br />
@@ -22,18 +22,18 @@
 </p>
 
 <p align="center">
-  <img src="docs/media/basic.png" alt="pdf-anchor highlighting two citations in a discharge summary, with the citation panel and toolbar below" width="820" />
+  <img src="docs/media/basic.png" alt="@efa/pdf-anchor highlighting two citations in a discharge summary, with the citation panel and toolbar below" width="820" />
 </p>
 
 <p align="center">
-  <a href="docs/media/demo.mp4"><b>Watch the 50-second walkthrough</b></a>
+  <a href="docs/media/demo.mp4"><b>Watch the one-minute walkthrough (with voice-over)</b></a>
 </p>
 
 ---
 
 ## Why
 
-AI answers, extracted fields and audit findings are only trustworthy if a human can check them against the source. pdf-anchor turns _"the document says X"_ into _"here, on page 7, highlighted"_, without coordinates, bounding boxes or OCR output from your backend. You send text; it finds the place.
+AI answers, extracted fields and audit findings are only trustworthy if a human can check them against the source. `@efa/pdf-anchor` turns _"the document says X"_ into _"here, on page 7, highlighted"_, without coordinates, bounding boxes or OCR output from your backend. You send text; it finds the place.
 
 - **Matches text, not positions.** Passages are located with [`string-best-match`](https://github.com/valyefimov/string-best-match) (rolling hash + binary search), so punctuation, casing, line breaks and extra words around the quote don't break it.
 - **A complete viewer.** Header, zoom, rotation, page paging, a citation panel with _n of N_ navigation and quick links to every page that carries a citation.
@@ -169,7 +169,7 @@ The core only needs a DOM with a rendered pdf.js text layer. See [Core](docs/cor
 
 ## How it works
 
-pdf.js renders each page's text as DOM spans. pdf-anchor flattens them into one word list, finds the longest run of words shared with your quote using `string-best-match`, and marks the spans that own those words. The details, thresholds (`minMatchWords`, `minMatchRatio`) and limits are in [How it works](docs/how-it-works.md).
+pdf.js renders each page's text as DOM spans. `@efa/pdf-anchor` flattens them into one word list, finds the longest run of words shared with your quote using `string-best-match`, and marks the spans that own those words. The details, thresholds (`minMatchWords`, `minMatchRatio`) and limits are in [How it works](docs/how-it-works.md).
 
 Good to know: highlighting is per text-layer span, and the PDF must have a text layer (scanned images need OCR first).
 

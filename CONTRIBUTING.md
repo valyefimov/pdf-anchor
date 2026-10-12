@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interest in pdf-anchor.
+Thanks for your interest in @efa/pdf-anchor.
 
 ## Setup
 

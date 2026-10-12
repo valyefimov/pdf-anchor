@@ -1,6 +1,6 @@
 # Theming and styling
 
-pdf-anchor ships one small stylesheet, `@efa/pdf-anchor/styles.css`. There is no CSS-in-JS runtime and no dependency on a component library, so every layer can be restyled with plain CSS.
+`@efa/pdf-anchor` ships one small stylesheet, `@efa/pdf-anchor/styles.css`. There is no CSS-in-JS runtime and no dependency on a component library, so every layer can be restyled with plain CSS.
 
 You have four levels of control, from coarse to fine.
 

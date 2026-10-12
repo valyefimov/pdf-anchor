@@ -1,6 +1,6 @@
 # How matching works
 
-pdf-anchor does not need character offsets, coordinates or an OCR layer. It works on the text layer that pdf.js already renders into the DOM.
+`@efa/pdf-anchor` does not need character offsets, coordinates or an OCR layer. It works on the text layer that pdf.js already renders into the DOM.
 
 ## Pipeline
 
